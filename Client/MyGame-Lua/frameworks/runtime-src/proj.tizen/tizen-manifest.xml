@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="2.3" package="com.aaa.bbb" version="1.0.0">
+    <ui-application appid="com.aaa.bbb" exec="hellolua" type="capp" multiple="false" taskmanage="true" nodisplay="false">
+        <icon>MyGame-Lua.png</icon>
+        <label>MyGame-Lua</label>
+	</ui-application>
+</manifest>
