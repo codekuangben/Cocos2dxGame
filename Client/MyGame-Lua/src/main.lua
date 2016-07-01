@@ -3,6 +3,7 @@ cc.FileUtils:getInstance():setPopupNotify(false)
 cc.FileUtils:getInstance():addSearchPath("src/")	-- src 查找目录
 cc.FileUtils:getInstance():addSearchPath("res/") 	-- res 查找目录
 cc.FileUtils:getInstance():addSearchPath("res/UI") 	-- res/UI 查找目录
+cc.FileUtils:getInstance():addSearchPath("res/Effect")
 
 require("mobdebug").start()
 
