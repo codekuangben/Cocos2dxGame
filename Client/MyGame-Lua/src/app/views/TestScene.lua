@@ -51,28 +51,28 @@ function TestScene:testFrameAni()
 	frameCache:addSpriteFrames("Test.plist");
 	
 	-- 生成动画
-	local frameAnimation = nil;
+	local animation = nil;
 	local animationCache = cc.AnimationCache:getInstance();
-	frameAnimation = animationCache:getAnimation("dance_1");
+	animation = animationCache:getAnimation("dance_1");
 	
 	if(frameAnimation == nil) then
 		-- C++ addAnimationsWithFile 绑定到 Lua 是 addAnimations 接口
 		cc.AnimationCache:getInstance():addAnimations("Anim.plist");
-		frameAnimation = cc.AnimationCache:getInstance():getAnimation("dance_1");
+		animation = cc.AnimationCache:getInstance():getAnimation("dance_1");
 	end
 	
-	-- frameAnimation:setDelayUnits(0.1);
-	-- frameAnimation:setRestoreOriginalFrame(true);
+	-- animation:setDelayUnits(0.1);
+	-- animation:setRestoreOriginalFrame(true);
 	
 	--精灵执行动画
-	local animate = cc.Animate:create(frameAnimation);
+	local animate = cc.Animate:create(animation);
 	local effectSprite = cc.Sprite:create();
 	
 	-- Lua 中 getSpriteFrameByName 过时，使用 getSpriteFrame
-	local frame = frameCache:getSpriteFrame("bai01_000.tga");
+	local spriteFrame = frameCache:getSpriteFrame("bai01_000.tga");
 	
 	-- C++ 中 setDisplayFrame 过时，使用 setSpriteFrame 代替
-	effectSprite:setSpriteFrame(frame);
+	effectSprite:setSpriteFrame(spriteFrame);
 	
 	self:addChild(effectSprite);
 	
