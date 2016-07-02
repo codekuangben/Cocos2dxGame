@@ -13,6 +13,8 @@
 #include "ide-support/RuntimeLuaImpl.h"
 #endif
 
+#include "MyCC/Test/TestMain.h"
+
 using namespace CocosDenshion;
 
 USING_NS_CC;
@@ -81,6 +83,9 @@ bool AppDelegate::applicationDidFinishLaunching()
         return false;
     }
 #endif
+
+	TestMain* pTestMain = new TestMain();
+	pTestMain->run();
 
     return true;
 }

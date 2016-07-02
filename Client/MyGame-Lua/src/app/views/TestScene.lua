@@ -17,7 +17,8 @@ function TestScene:onCreate()
 	--self:testLoadUI();
 	--self:testPlayAni();
 	--self:testFrameAni();
-	self:addEventHandle();
+	--self:addEventHandle();
+	self:testClip();
 end
 
 -- 测试加载 UI
@@ -119,6 +120,67 @@ function TestScene:menuZhuCeCallback(sender,eventType)
 	elseif eventType == ccui.TouchEventType.canceled then
 		print("取消点击");
 	end
+end
+
+--利用ClippingNode实现遮罩，但是在实际的项目中，可以用widget的setEnable的
+function TestScene:testClip()
+	local size = cc.Director:getInstance():getVisibleSize();
+    local orign = cc.Director:getInstance():getVisibleOrigin();
+   
+    --设置两个控件
+    local menuitemImage = cc.MenuItemFont:create("HelloWorld");
+    local menu = cc.Menu:create(menuitemImage);
+   
+    menu:setPosition(cc.p(size.width/2, size.height-20));
+    self:addChild(menu);
+   
+    menuitemImage:registerScriptTapHandler(
+		function()  
+			print("menuitemImage click");
+		end
+	);
+
+    local sprite = cc.Sprite:create("Hello.png");
+    self:addChild(sprite);
+    sprite:setPosition(cc.p(orign.x + size.width/2, orign.y + size.height/2+30));
+    sprite:setScale(0.3);
+   
+    --创建一个button，为了不相应它前面的控件
+    local btn = ccui.Button:create();
+    btn:setContentSize(size);
+    btn:setPosition(cc.p(size.width/2,size.height/2));
+    btn:setScale9Enabled(true);
+    self:addChild(btn);
+    btn:setSwallowTouches(true);
+   
+    btn:addTouchEventListener(
+		function(ref, type)
+			if ref == btn and type == ccui.TouchEventType.ended then
+				print("btn click");
+			end
+		end
+	);
+   
+    --创建ClippingNode(底板)
+    local laycolor = cc.LayerColor:create(cc.c4b(0,0,0,120));
+    local clipNode = cc.ClippingNode:create();
+    clipNode:setInverted(true);
+    clipNode:setAlphaThreshold(0);
+    self:addChild(clipNode);
+    clipNode:addChild(laycolor);
+   
+    --模板，其实就是模板这个控件正常显示，其他的控件加上了color这层
+    local image = cc.MenuItemImage:create("CloseNormal.png","CloseSelected.png");
+    image:setPosition(cc.p(size.width/2, 100));
+    menu = cc.Menu:create(image);
+    menu:setPosition(cc.p(0,0));
+    self:addChild(menu);
+    image:registerScriptTapHandler(
+		function()
+			print("image click");
+		end
+	);
+    clipNode:setStencil(menu);
 end
 
 return TestScene;
