@@ -11,11 +11,14 @@ class EngineLoop
 {
 protected:
 	EventListenerCustom*       _event;
+	bool mIsFirstEnterScene;
 
 public:
+	EngineLoop();
 	void init();
 
 	void onDirectorEvent(EventCustom* evt);
+	void onFirstEnterScene();
 };
 
 #endif
