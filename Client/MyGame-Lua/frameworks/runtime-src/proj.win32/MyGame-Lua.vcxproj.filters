@@ -10,6 +10,15 @@
     <Filter Include="resource">
       <UniqueIdentifier>{2d1d0979-58cd-4ab6-b91c-13650158f1fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\MyCC">
+      <UniqueIdentifier>{6e4f0ff2-da2c-4c61-a463-cd9f30698b6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\MyCC\Test">
+      <UniqueIdentifier>{aabf3881-a98b-4a29-af77-ed7022c15ffb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\MyCC\Test\TestClipNode">
+      <UniqueIdentifier>{6e9f91bc-6cc1-42ba-bf48-ab0a2b3dfc9b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h">
@@ -35,6 +44,8 @@
     <ClInclude Include="..\Classes\ide-support\RuntimeLuaImpl.h">
       <Filter>Classes</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\MyCC\Test\TestClipNode\TestClipNode.h" />
+    <ClInclude Include="..\Classes\MyCC\Test\TestMain.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -53,6 +64,8 @@
     <ClCompile Include="..\Classes\ide-support\RuntimeLuaImpl.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\MyCC\Test\TestClipNode\TestClipNode.cpp" />
+    <ClCompile Include="..\Classes\MyCC\Test\TestMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

@@ -18,7 +18,8 @@ function TestScene:onCreate()
 	--self:testPlayAni();
 	--self:testFrameAni();
 	--self:addEventHandle();
-	self:testClip();
+	--self:testClip();
+	self:testParticle();
 end
 
 -- 测试加载 UI
@@ -168,7 +169,7 @@ function TestScene:testClip()
     clipNode:setAlphaThreshold(0);
     self:addChild(clipNode);
     clipNode:addChild(laycolor);
-   
+
     --模板，其实就是模板这个控件正常显示，其他的控件加上了color这层
     local image = cc.MenuItemImage:create("CloseNormal.png","CloseSelected.png");
     image:setPosition(cc.p(size.width/2, 100));
@@ -181,6 +182,14 @@ function TestScene:testClip()
 		end
 	);
     clipNode:setStencil(menu);
+end
+
+function TestScene:testParticle()
+	local director = cc.Director:getInstance();
+	local visibleSize = director:getVisibleSize();
+	local particleSystem = cc.ParticleSystemQuad:create("ParticleTest.plist");
+	particleSystem:setPosition(cc.p(visibleSize.width/2, visibleSize.height/2));
+	self:addChild(particleSystem);
 end
 
 return TestScene;

@@ -85,7 +85,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 #endif
 
 	TestMain* pTestMain = new TestMain();
-	pTestMain->run();
+	//pTestMain->run();
 
     return true;
 }

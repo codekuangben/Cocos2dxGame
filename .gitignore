@@ -2,3 +2,10 @@
 /Client/MyGame-Lua/frameworks/runtime-src/proj.win32/Debug.win32
 /Client/MyGame-Lua/frameworks/runtime-src/proj.win32/.vs
 /Client/MyGame-Lua/frameworks/cocos2d-x/cocos/2d/Debug.win32
+/Client/MyGame-Lua/frameworks/cocos2d-x/cocos/editor-support/spine/proj.win32/Debug.win32
+/Client/MyGame-Lua/frameworks/cocos2d-x/cocos/scripting/lua-bindings/proj.win32/Debug.win32
+/Client/MyGame-Lua/frameworks/cocos2d-x/external/Box2D/proj.win32/Debug.win32
+/Client/MyGame-Lua/frameworks/cocos2d-x/external/bullet/proj.win32/Debug.win32
+/Client/MyGame-Lua/frameworks/cocos2d-x/external/recast/proj.win32/Debug.win32
+/Client/MyGame-Lua/frameworks/cocos2d-x/tools/simulator/libsimulator/proj.win32/Debug.win32
+/Client/MyGame-Lua/frameworks/runtime-src/proj.win32/MyGame-Lua.sdf
