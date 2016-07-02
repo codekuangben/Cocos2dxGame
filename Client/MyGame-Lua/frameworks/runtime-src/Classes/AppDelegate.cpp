@@ -13,7 +13,7 @@
 #include "ide-support/RuntimeLuaImpl.h"
 #endif
 
-#include "MyCC/Test/TestMain.h"
+#include "MyCC/Libs/FrameWork/EngineLoop.h"
 
 using namespace CocosDenshion;
 
@@ -84,11 +84,8 @@ bool AppDelegate::applicationDidFinishLaunching()
     }
 #endif
 
-	TestMain* pTestMain = new TestMain();
-	//pTestMain->run();
-
-	_event = Director::getInstance()->getEventDispatcher()->addCustomEventListener(Director::EVENT_AFTER_DRAW, std::bind(&AppDelegate::onDirectorEvent, this, std::placeholders::_1));
-	_event->retain();
+	EngineLoop* pEngineLoop = new EngineLoop();
+	pEngineLoop->init();
 
     return true;
 }
@@ -107,9 +104,4 @@ void AppDelegate::applicationWillEnterForeground()
     Director::getInstance()->startAnimation();
 
     SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
-}
-
-void AppDelegate::onDirectorEvent(EventCustom* evt)
-{
-
 }

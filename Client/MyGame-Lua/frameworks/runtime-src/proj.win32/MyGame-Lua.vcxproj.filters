@@ -19,6 +19,12 @@
     <Filter Include="Classes\MyCC\Libs\FrameWork">
       <UniqueIdentifier>{6dd91209-5eef-4ea5-8626-8cf13869b174}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\MyCC\Test">
+      <UniqueIdentifier>{fe83d29f-154d-417b-b248-f8f702358f3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\MyCC\Test\TestClipNode">
+      <UniqueIdentifier>{7b02182a-ce02-47f3-b65c-1d9104c872c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h">
@@ -44,13 +50,17 @@
     <ClInclude Include="..\Classes\ide-support\RuntimeLuaImpl.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\MyCC\Test\TestClipNode\TestClipNode.h" />
-    <ClInclude Include="..\Classes\MyCC\Test\TestMain.h" />
     <ClInclude Include="..\Classes\MyCC\Libs\FrameWork\EngineLoop.h">
       <Filter>Classes\MyCC\Libs\FrameWork</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\MyCC\Libs\FrameWork\ProcessSys.h">
       <Filter>Classes\MyCC\Libs\FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MyCC\Test\TestMain.h">
+      <Filter>Classes\MyCC\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MyCC\Test\TestClipNode\TestClipNode.h">
+      <Filter>Classes\MyCC\Test\TestClipNode</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -70,13 +80,17 @@
     <ClCompile Include="..\Classes\ide-support\RuntimeLuaImpl.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\MyCC\Test\TestClipNode\TestClipNode.cpp" />
-    <ClCompile Include="..\Classes\MyCC\Test\TestMain.cpp" />
     <ClCompile Include="..\Classes\MyCC\Libs\FrameWork\EngineLoop.cpp">
       <Filter>Classes\MyCC\Libs\FrameWork</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\MyCC\Libs\FrameWork\ProcessSys.cpp">
       <Filter>Classes\MyCC\Libs\FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MyCC\Test\TestMain.cpp">
+      <Filter>Classes\MyCC\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MyCC\Test\TestClipNode\TestClipNode.cpp">
+      <Filter>Classes\MyCC\Test\TestClipNode</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

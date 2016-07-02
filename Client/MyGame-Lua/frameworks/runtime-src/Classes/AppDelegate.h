@@ -10,8 +10,6 @@ Private inheritance here hides part of interface from Director.
 */
 class  AppDelegate : private cocos2d::Application
 {
-protected:
-	EventListenerCustom*       _event;
 public:
     AppDelegate();
     virtual ~AppDelegate();
@@ -36,8 +34,6 @@ public:
     @param  the pointer of the application
     */
     virtual void applicationWillEnterForeground();
-
-	void AppDelegate::onDirectorEvent(EventCustom* evt);
 };
 
 #endif  // __APP_DELEGATE_H__
