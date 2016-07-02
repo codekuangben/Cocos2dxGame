@@ -87,6 +87,9 @@ bool AppDelegate::applicationDidFinishLaunching()
 	TestMain* pTestMain = new TestMain();
 	//pTestMain->run();
 
+	_event = Director::getInstance()->getEventDispatcher()->addCustomEventListener(Director::EVENT_AFTER_DRAW, std::bind(&AppDelegate::onDirectorEvent, this, std::placeholders::_1));
+	_event->retain();
+
     return true;
 }
 
@@ -104,4 +107,9 @@ void AppDelegate::applicationWillEnterForeground()
     Director::getInstance()->startAnimation();
 
     SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+}
+
+void AppDelegate::onDirectorEvent(EventCustom* evt)
+{
+
 }

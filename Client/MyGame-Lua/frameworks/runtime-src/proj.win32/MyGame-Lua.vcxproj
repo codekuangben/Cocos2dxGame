@@ -195,6 +195,8 @@ xcopy "$(ProjectDir)..\..\..\src" "$(LocalDebuggerWorkingDirectory)\src" /D /E /
     <ClInclude Include="..\Classes\ide-support\CodeIDESupport.h" />
     <ClInclude Include="..\Classes\ide-support\lua_debugger.h" />
     <ClInclude Include="..\Classes\ide-support\RuntimeLuaImpl.h" />
+    <ClInclude Include="..\Classes\MyCC\Libs\FrameWork\EngineLoop.h" />
+    <ClInclude Include="..\Classes\MyCC\Libs\FrameWork\ProcessSys.h" />
     <ClInclude Include="..\Classes\MyCC\Test\TestClipNode\TestClipNode.h" />
     <ClInclude Include="..\Classes\MyCC\Test\TestMain.h" />
     <ClInclude Include="main.h" />
@@ -207,6 +209,8 @@ xcopy "$(ProjectDir)..\..\..\src" "$(LocalDebuggerWorkingDirectory)\src" /D /E /
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\ide-support\lua_debugger.c" />
     <ClCompile Include="..\Classes\ide-support\RuntimeLuaImpl.cpp" />
+    <ClCompile Include="..\Classes\MyCC\Libs\FrameWork\EngineLoop.cpp" />
+    <ClCompile Include="..\Classes\MyCC\Libs\FrameWork\ProcessSys.cpp" />
     <ClCompile Include="..\Classes\MyCC\Test\TestClipNode\TestClipNode.cpp" />
     <ClCompile Include="..\Classes\MyCC\Test\TestMain.cpp" />
     <ClCompile Include="main.cpp" />

@@ -20,6 +20,7 @@ function TestScene:onCreate()
 	--self:addEventHandle();
 	--self:testClip();
 	self:testParticle();
+	--self:testParticle1();
 end
 
 -- 测试加载 UI
@@ -188,8 +189,26 @@ function TestScene:testParticle()
 	local director = cc.Director:getInstance();
 	local visibleSize = director:getVisibleSize();
 	local particleSystem = cc.ParticleSystemQuad:create("ParticleTest.plist");
+	particleSystem:setDuration(20);
 	particleSystem:setPosition(cc.p(visibleSize.width/2, visibleSize.height/2));
 	self:addChild(particleSystem);
+	
+	-- 一定要加这一行，默认是暂停的
+	particleSystem:resumeEmissions();
+end
+
+function TestScene:testParticle1()
+	local director = cc.Director:getInstance();
+	local visibleSize = director:getVisibleSize();
+	local particleSystem = cc.ParticleSystemQuad:create("ParticleTest.plist");
+	particleSystem:setPosition(cc.p(visibleSize.width/2, visibleSize.height/2));
+	particleSystem:retain();
+	local batch = cc.ParticleBatchNode:createWithTexture(particleSystem:getTexture());
+	batch:addChild(particleSystem);
+	self:addChild(batch);
+	particleSystem:release();
+	-- 一定要加这一行，默认是暂停的
+	particleSystem:resumeEmissions();
 end
 
 return TestScene;
