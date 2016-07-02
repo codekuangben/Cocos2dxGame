@@ -7,10 +7,9 @@ USING_NS_CC;
 
 class UtilApi
 {
-protected:
-
 public:
-
+	static Size getStageVisibleSize();
+	static Vec2 getStageVisibleOrigin();
 };
 
 #endif

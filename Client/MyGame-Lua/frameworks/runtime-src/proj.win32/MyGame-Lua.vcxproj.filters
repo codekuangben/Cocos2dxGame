@@ -25,6 +25,9 @@
     <Filter Include="Classes\MyCC\Test\TestClipNode">
       <UniqueIdentifier>{7b02182a-ce02-47f3-b65c-1d9104c872c9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\MyCC\Libs\Tools">
+      <UniqueIdentifier>{25d8cab8-c911-4272-aabc-b5d26b9b07aa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h">
@@ -62,6 +65,12 @@
     <ClInclude Include="..\Classes\MyCC\Test\TestClipNode\TestClipNode.h">
       <Filter>Classes\MyCC\Test\TestClipNode</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\MyCC\Tools\UtilApi.h">
+      <Filter>Classes\MyCC\Libs\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MyCC\Libs\FrameWork\Ctx.h">
+      <Filter>Classes\MyCC\Libs\FrameWork</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -91,6 +100,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\MyCC\Test\TestClipNode\TestClipNode.cpp">
       <Filter>Classes\MyCC\Test\TestClipNode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MyCC\Tools\UtilApi.cpp">
+      <Filter>Classes\MyCC\Libs\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MyCC\Libs\FrameWork\Ctx.cpp">
+      <Filter>Classes\MyCC\Libs\FrameWork</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
