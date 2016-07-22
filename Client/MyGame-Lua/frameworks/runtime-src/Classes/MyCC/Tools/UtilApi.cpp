@@ -2,10 +2,10 @@
 
 Size UtilApi::getStageVisibleSize()
 {
-	return Size(0, 0);
+	return Director::getInstance()->getVisibleSize();
 }
 
 Vec2 UtilApi::getStageVisibleOrigin()
 {
-	return Vec2(0, 0);
+	return Director::getInstance()->getVisibleOrigin();
 }
