@@ -10,3 +10,7 @@
 /Client/MyGame-Lua/frameworks/cocos2d-x/tools/simulator/libsimulator/proj.win32/Debug.win32
 /Client/MyGame-Lua/frameworks/runtime-src/proj.win32/MyGame-Lua.sdf
 /Client/MyGame-Lua/frameworks/runtime-src/proj.win32/MyGame-Lua.opensdf
+/Client/MyGame-Lua/frameworks/runtime-src/proj.android/obj
+/Client/MyGame-Lua/frameworks/runtime-src/proj.android/libs
+/Client/MyGame-Lua/frameworks/cocos2d-x/cocos/platform/android/java/local.properties
+/Client/MyGame-Lua/frameworks/runtime-src/proj.android/local.properties
