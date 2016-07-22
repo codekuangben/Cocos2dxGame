@@ -21,7 +21,7 @@ void EngineLoop::onDirectorEvent(EventCustom* evt)
 		{
 			mIsFirstEnterScene = false;
 
-			onFirstEnterScene();
+			//onFirstEnterScene();
 		}
 	}
 }
