@@ -1,4 +1,4 @@
-local TestScene = class("MainScene", cc.load("mvc").ViewBase)
+local TestScene = class("TestScene", cc.load("mvc").ViewBase)
 
 function TestScene:onCreate()
     -- add background image
@@ -19,8 +19,9 @@ function TestScene:onCreate()
 	--self:testFrameAni();
 	--self:addEventHandle();
 	--self:testClip();
-	self:testParticle();
+	--self:testParticle();
 	--self:testParticle1();
+	self:testTick();
 end
 
 -- 测试加载 UI
@@ -209,6 +210,26 @@ function TestScene:testParticle1()
 	particleSystem:release();
 	-- 一定要加这一行，默认是暂停的
 	particleSystem:resumeEmissions();
+end
+
+function TestScene:testTick()
+	--self:onUpdate(TestScene.testOnTick);
+	self:onUpdate(handler(self, self.onTick));
+end
+
+function TestScene.testOnTick(delta)
+	
+end
+
+--每一帧都回调的函数
+function TestScene:onTick(delta)
+	local aaa = delta;
+	
+	self:stopTick();
+end
+
+function TestScene:stopTick()
+	self:unscheduleUpdate();
 end
 
 return TestScene;
