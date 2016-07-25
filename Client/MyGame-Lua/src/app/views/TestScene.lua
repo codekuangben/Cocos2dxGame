@@ -21,7 +21,8 @@ function TestScene:onCreate()
 	--self:testClip();
 	--self:testParticle();
 	--self:testParticle1();
-	self:testTick();
+	--self:testTick();
+	self:testLoadFormUI();
 end
 
 -- 测试加载 UI
@@ -230,6 +231,15 @@ end
 
 function TestScene:stopTick()
 	self:unscheduleUpdate();
+end
+
+function TestScene:testLoadFormUI()
+	require "MyLua.UI.UITestTableView.UITestTableView";
+	local form = GlobalNS.new(GlobalNS.TestTableViewNS.UITestTableView);
+	form:onInit();
+	form:onReady();
+	form:onShow();
+	form:addToStage(self);
 end
 
 return TestScene;
