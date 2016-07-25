@@ -21,6 +21,10 @@ function M:init(params)
 	self:createTableView();
 end
 
+function M:getNativeTableView()
+	return self.mTableView;
+end
+
 function M:createTableView()
 	self.mTableView = cc.TableView:create(cc.size(self.mParams.mTableViewWidth, self.mParams.mTableViewHeight));
 	self.mTableView:setDirection(self.mParams.mDirection);

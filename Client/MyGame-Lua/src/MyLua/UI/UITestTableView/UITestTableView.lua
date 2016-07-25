@@ -64,7 +64,7 @@ function M:testVerticleTableView()
 	params.mPThis = self;
 	
 	self.mTableView = GlobalNS.AuxTableView.create(params);
-	GlobalNS.UtilApi.addChild(self:getRootLayer(), self.mTableView);
+	GlobalNS.UtilApi.addChild(self:getRootLayer(), self.mTableView:getNativeTableView());
 	self.mTableView:reloadData();
 end
 

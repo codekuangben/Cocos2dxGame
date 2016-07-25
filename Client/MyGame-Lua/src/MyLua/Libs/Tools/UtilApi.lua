@@ -52,4 +52,16 @@ function M.addTouchEndHandle(listener, functor)
 	end
 end
 
+function M.getAndLoadLua(path)
+	local uiModule = GlobalNS.ClassLoader.loadClass(path);
+	local uiNode = uiModule.create();
+	return uiNode;
+end
+
+function M.getAndLoadLuaRoot(path)
+	local uiModule = GlobalNS.ClassLoader.loadClass(path);
+	local uiNode = uiModule.create();
+	return uiNode.root;
+end
+
 return M;

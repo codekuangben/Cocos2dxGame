@@ -98,10 +98,7 @@ function M:onCloseBtnClk()
 end
 
 function M:createNode()	
-	--local uiModule = require self.mModuleFullPath;
-	--require "UI.UITestTableView";
-	local ui_Test = require "UITest";
-	--self.m_guiWin = uiModule.create();
+	self.m_guiWin = GlobalNS.UtilApi.getAndLoadLua(self.mModuleFullPath);
 end
 
 function M:getRootLayer()
