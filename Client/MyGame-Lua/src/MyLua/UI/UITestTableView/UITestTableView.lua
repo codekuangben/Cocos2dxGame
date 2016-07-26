@@ -98,6 +98,8 @@ function M:onTableCellAtIndex(tableView, cellIdx)
 		listCell:setTag(1000);
 		GlobalNS.UtilApi.addChild(cell, listCell);
 	end
+	
+	return cell;
 end
 
 function M:onNumberOfCellsInTableView(tableView)

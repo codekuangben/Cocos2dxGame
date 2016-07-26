@@ -87,17 +87,17 @@ end
 
 function M:onTableCellTouched(tableView, cell)
 	if(self.mParams.onTableCellTouched ~= nil and self.mParams.mPThis ~= nil) then
-		self.mParams.onTableCellTouched(self.mParams.mPThis, tableView);
+		self.mParams.onTableCellTouched(self.mParams.mPThis, tableView, cell);
 	elseif (self.mParams.onTableCellTouched ~= nil) then
-		self.mParams.onTableCellTouched(tableView);
+		self.mParams.onTableCellTouched(tableView, cell);
 	end
 end
 
 function M:onCellSizeForTable(tableView, cellIdx)
 	if(self.mParams.onCellSizeForTable ~= nil and self.mParams.mPThis ~= nil) then
-		return self.mParams.onCellSizeForTable(self.mParams.mPThis, tableView);
+		return self.mParams.onCellSizeForTable(self.mParams.mPThis, tableView, cellIdx);
 	elseif (self.mParams.onCellSizeForTable ~= nil) then
-		return self.mParams.onCellSizeForTable(tableView);
+		return self.mParams.onCellSizeForTable(tableView, cellIdx);
 	end
 	
 	return 100, 100;
@@ -105,10 +105,12 @@ end
 
 function M:onTableCellAtIndex(tableView, cellIdx)
 	if(self.mParams.onTableCellAtIndex ~= nil and self.mParams.mPThis ~= nil) then
-		self.mParams.onTableCellAtIndex(self.mParams.mPThis, tableView);
+		return self.mParams.onTableCellAtIndex(self.mParams.mPThis, tableView, cellIdx);
 	elseif (self.mParams.onTableCellAtIndex ~= nil) then
-		self.mParams.onTableCellAtIndex(tableView);
+		return self.mParams.onTableCellAtIndex(tableView, cellIdx);
 	end
+	
+	return nil;
 end
 
 function M:onNumberOfCellsInTableView(tableView)
@@ -140,33 +142,33 @@ end
 
 function M.onGlobalTableCellTouched(tableView, cell)
 	if(self.mParams.onTableCellTouched ~= nil and self.mParams.mPThis ~= nil) then
-		self.mParams.onTableCellTouched(self.mParams.mPThis, tableView);
+		self.mParams.onTableCellTouched(self.mParams.mPThis, tableView, cell);
 	elseif (self.mParams.onTableCellTouched ~= nil) then
-		self.mParams.onTableCellTouched(tableView);
+		self.mParams.onTableCellTouched(tableView, cell);
 	end
 end
 
 function M.onGlobalCellSizeForTable(tableView, idx)
 	if(self.mParams.onCellSizeForTable ~= nil and self.mParams.mPThis ~= nil) then
-		self.mParams.onCellSizeForTable(self.mParams.mPThis, tableView);
+		return self.mParams.onCellSizeForTable(self.mParams.mPThis, tableView, idx);
 	elseif (self.mParams.onCellSizeForTable ~= nil) then
-		self.mParams.onCellSizeForTable(tableView);
+		return self.mParams.onCellSizeForTable(tableView, idx);
 	end
 end
 
 function M.onGlobalTableCellAtIndex(tableView, idx)
 	if(self.mParams.onTableCellAtIndex ~= nil and self.mParams.mPThis ~= nil) then
-		self.mParams.onTableCellAtIndex(self.mParams.mPThis, tableView);
+		return self.mParams.onTableCellAtIndex(self.mParams.mPThis, tableView, idx);
 	elseif (self.mParams.onTableCellAtIndex ~= nil) then
-		self.mParams.onTableCellAtIndex(tableView);
+		return self.mParams.onTableCellAtIndex(tableView, idx);
 	end
 end
 
 function M.onGlobalNumberOfCellsInTableView(tableView)
 	if(self.mParams.onNumberOfCellsInTableView ~= nil and self.mParams.mPThis ~= nil) then
-		self.mParams.onNumberOfCellsInTableView(self.mParams.mPThis, tableView);
+		return self.mParams.onNumberOfCellsInTableView(self.mParams.mPThis, tableView);
 	elseif (self.mParams.onNumberOfCellsInTableView ~= nil) then
-		self.mParams.onNumberOfCellsInTableView(tableView);
+		return self.mParams.onNumberOfCellsInTableView(tableView);
 	end
 end
 

@@ -4,7 +4,7 @@
        "isWindowTop": false,
        "name": "MyGame-Lua",
        "width": 640,
-       "height": 1136,
+       "height": 800,
        "entry": "src/main.lua",
        "consolePort": 6050,
        "uploadPort": 6060
