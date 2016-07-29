@@ -47,63 +47,10 @@ function M:onBtnClk()
 end
 
 function M:testVerticleTableView()
-	local params = GlobalNS.new(GlobalNS.AuxTableViewCreateParam);
-	params.mTableViewX = 0;
-	params.mTableViewY = 0;
-	
-	params.mTableViewWidth = 500;
-	params.mTableViewHeight = 500;
-	
-	params.onScrollViewDidScroll = M.onScrollViewDidScroll;
-	params.onScrollViewDidZoom = M.onScrollViewDidZoom;
-	params.onTableCellTouched = M.onTableCellTouched;
-	params.onCellSizeForTable = M.onCellSizeForTable;
-	params.onTableCellAtIndex = M.onTableCellAtIndex;
-	params.onNumberOfCellsInTableView = M.onNumberOfCellsInTableView;
-	
-	params.mPThis = self;
-	
-	self.mTableView = GlobalNS.AuxTableView.create(params);
+	self.mTableView = GlobalNS.new(GlobalNS.AuxTableView);
+	self.mTableView:init();
 	GlobalNS.UtilApi.addChild(self:getRootLayer(), self.mTableView:getNativeTableView());
 	self.mTableView:reloadData();
-end
-
-function M:onScrollViewDidScroll(tableView)
-	
-end
-
-function M:onScrollViewDidZoom(tableView)
-	
-end
-
-function M:onTableCellTouched(tableView, cell)
-	
-end
-
-function M:onCellSizeForTable(tableView, cellIdx)
-	return 500, 100;
-end
-
-function M:onTableCellAtIndex(tableView, cellIdx)
-	local cell = tableView:dequeueCell();
-	if(nil == cell) then
-		cell = GlobalNS.UtilApi.createTableViewCell();
-	end
-	
-	local listCell = cell:getChildByTag(1000);
-	if(nil == listCell) then
-		local uiModule = require "UI.UITestTableViewItem";
-		local uiNode = uiModule.create();
-		listCell = uiNode.root;
-		listCell:setTag(1000);
-		GlobalNS.UtilApi.addChild(cell, listCell);
-	end
-	
-	return cell;
-end
-
-function M:onNumberOfCellsInTableView(tableView)
-	return 5;
 end
 
 return M;

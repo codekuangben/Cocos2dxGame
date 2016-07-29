@@ -2,22 +2,25 @@ local M = GlobalNS.Class(GlobalNS.AuxWindow);
 M.clsName = "AuxTableView";
 GlobalNS[M.clsName] = M;
 
-function M.create(params)
-	local tableView = GlobalNS.new(GlobalNS.AuxTableView);
-	tableView:init(params);
-	return tableView;
-end
-
 function M:ctor()
+	self.mTableViewX = 0;
+	self.mTableViewY = 0;
 	
+	self.mTableViewWidth = 100;
+	self.mTableViewHeight = 100;
+	
+	self.mDirection = cc.SCROLLVIEW_DIRECTION_VERTICAL;
+	self.mVordering = cc.TABLEVIEW_FILL_TOPDOWN;
+	
+	self.mCellItemTag = 1000;
+	self.mcellItemPath = "";
 end
 
 function M:dtor()
 	
 end
 
-function M:init(params)
-    self.mParams = params;
+function M:init()
 	self:createTableView();
 end
 
@@ -26,11 +29,11 @@ function M:getNativeTableView()
 end
 
 function M:createTableView()
-	self.mTableView = cc.TableView:create(cc.size(self.mParams.mTableViewWidth, self.mParams.mTableViewHeight));
-	self.mTableView:setDirection(self.mParams.mDirection);
-	self.mTableView:setPosition(cc.p(self.mParams.mTableViewX, self.mParams.mTableViewY));
+	self.mTableView = cc.TableView:create(cc.size(self.mTableViewWidth, self.mTableViewHeight));
+	self.mTableView:setDirection(self.mDirection);
+	self.mTableView:setPosition(cc.p(self.mTableViewX, self.mTableViewY));
 	self.mTableView:setDelegate();
-	self.mTableView:setVerticalFillOrder(self.mParams.mVordering);
+	self.mTableView:setVerticalFillOrder(self.mVordering);
 	
 	--[[
 	self.mTableView:registerScriptHandler(M.onGlobalScrollViewDidScroll, cc.SCROLLVIEW_SCRIPT_SCROLL);
@@ -41,7 +44,6 @@ function M:createTableView()
 	self.mTableView:registerScriptHandler(M.onGlobalNumberOfCellsInTableView, cc.NUMBER_OF_CELLS_IN_TABLEVIEW);
 	]]
 	
-
 	local functor = nil;
 	functor = handler(self, M.onScrollViewDidScroll);
 	self.mTableView:registerScriptHandler(functor, cc.SCROLLVIEW_SCRIPT_SCROLL);
@@ -62,114 +64,90 @@ function M:createTableView()
 	self.mTableView:registerScriptHandler(functor, cc.NUMBER_OF_CELLS_IN_TABLEVIEW);
 end
 
+--Self 接口
+function M:onScrollViewDidScroll(tableView)
+	
+end
+
+function M:onScrollViewDidZoom(tableView)
+	
+end
+
+function M:onTableCellTouched(tableView, cell)
+	
+end
+
+function M:onCellSizeForTable(tableView, cellIdx)
+	return 100, 100;
+end
+
+function M:onTableCellAtIndex(tableView, cellIdx)
+	return nil;
+end
+
+function M:onNumberOfCellsInTableView(tableView)
+	return 0;
+end
+
+--[[
+--非 Self 接口
+function M.onGlobalScrollViewDidScroll(tableView)
+	
+end
+
+function M.onGlobalScrollViewDidZoom(tableView)
+	
+end
+
+function M.onGlobalTableCellTouched(tableView, cell)
+	
+end
+
+function M.onGlobalCellSizeForTable(tableView, idx)
+	return 100, 100;
+end
+
+function M.onGlobalTableCellAtIndex(tableView, idx)
+	return nil;
+end
+
+function M.onGlobalNumberOfCellsInTableView(tableView)
+	return 0;
+end
+]]
+
 function M:reloadData()
 	if(self.mTableView ~= nil) then
 		self.mTableView:reloadData();
 	end
 end
 
---Self 接口
-function M:onScrollViewDidScroll(tableView)
-	if(self.mParams.onScrollViewDidScroll ~= nil and self.mParams.mPThis ~= nil) then
-		self.mParams.onScrollViewDidScroll(self.mParams.mPThis, tableView);
-	elseif (self.mParams.onScrollViewDidScroll ~= nil) then
-		self.mParams.onScrollViewDidScroll(tableView);
+function M:setPosition(posX, posY)
+	if(nil ~= self.mTableView) then
+		self.mTableViewX = posX;
+		self.mTableViewY = posY;
+		self.mTableView:setPosition(cc.p(self.mTableViewX, self.mTableViewY));
 	end
 end
 
-function M:onScrollViewDidZoom(tableView)
-	if(self.mParams.onScrollViewDidZoom ~= nil and self.mParams.mPThis ~= nil) then
-		self.mParams.onScrollViewDidZoom(self.mParams.mPThis, tableView);
-	elseif (self.mParams.onScrollViewDidZoom ~= nil) then
-		self.mParams.onScrollViewDidZoom(tableView);
-	end
-end
-
-function M:onTableCellTouched(tableView, cell)
-	if(self.mParams.onTableCellTouched ~= nil and self.mParams.mPThis ~= nil) then
-		self.mParams.onTableCellTouched(self.mParams.mPThis, tableView, cell);
-	elseif (self.mParams.onTableCellTouched ~= nil) then
-		self.mParams.onTableCellTouched(tableView, cell);
-	end
-end
-
-function M:onCellSizeForTable(tableView, cellIdx)
-	if(self.mParams.onCellSizeForTable ~= nil and self.mParams.mPThis ~= nil) then
-		return self.mParams.onCellSizeForTable(self.mParams.mPThis, tableView, cellIdx);
-	elseif (self.mParams.onCellSizeForTable ~= nil) then
-		return self.mParams.onCellSizeForTable(tableView, cellIdx);
+function M:getOrCreateCell(tableView)
+	local cell = tableView:dequeueCell();
+	if(nil == cell) then
+		cell = GlobalNS.UtilApi.createTableViewCell();
 	end
 	
-	return 100, 100;
+	return cell;
 end
 
-function M:onTableCellAtIndex(tableView, cellIdx)
-	if(self.mParams.onTableCellAtIndex ~= nil and self.mParams.mPThis ~= nil) then
-		return self.mParams.onTableCellAtIndex(self.mParams.mPThis, tableView, cellIdx);
-	elseif (self.mParams.onTableCellAtIndex ~= nil) then
-		return self.mParams.onTableCellAtIndex(tableView, cellIdx);
+function M:getOrCreateCellItem(cell)
+	local cellItem = cell:getChildByTag(1000);
+	if(nil == cellItem) then
+		cellItem = GlobalNS.UtilApi.getAndLoadLuaRoot(self.mcellItemPath);
+		cellItem:setTag(self.mCellItemTag);
+		GlobalNS.UtilApi.addChild(cell, cellItem);
 	end
 	
-	return nil;
-end
-
-function M:onNumberOfCellsInTableView(tableView)
-	if(self.mParams.onNumberOfCellsInTableView ~= nil and self.mParams.mPThis ~= nil) then
-		return self.mParams.onNumberOfCellsInTableView(self.mParams.mPThis, tableView);
-	elseif (self.mParams.onNumberOfCellsInTableView ~= nil) then
-		return self.mParams.onNumberOfCellsInTableView(tableView);
-	end
-	
-	return 0;
-end
-
---非 Self 接口
-function M.onGlobalScrollViewDidScroll(tableView)
-	if(self.mParams.onScrollViewDidScroll ~= nil and self.mParams.mPThis ~= nil) then
-		self.mParams.onScrollViewDidScroll(self.mParams.mPThis, tableView);
-	elseif (self.mParams.onScrollViewDidScroll ~= nil) then
-		self.mParams.onScrollViewDidScroll(tableView);
-	end
-end
-
-function M.onGlobalScrollViewDidZoom(tableView)
-	if(self.mParams.onScrollViewDidZoom ~= nil and self.mParams.mPThis ~= nil) then
-		self.mParams.onScrollViewDidZoom(self.mParams.mPThis, tableView);
-	elseif (self.mParams.onScrollViewDidZoom ~= nil) then
-		self.mParams.onScrollViewDidZoom(tableView);
-	end
-end
-
-function M.onGlobalTableCellTouched(tableView, cell)
-	if(self.mParams.onTableCellTouched ~= nil and self.mParams.mPThis ~= nil) then
-		self.mParams.onTableCellTouched(self.mParams.mPThis, tableView, cell);
-	elseif (self.mParams.onTableCellTouched ~= nil) then
-		self.mParams.onTableCellTouched(tableView, cell);
-	end
-end
-
-function M.onGlobalCellSizeForTable(tableView, idx)
-	if(self.mParams.onCellSizeForTable ~= nil and self.mParams.mPThis ~= nil) then
-		return self.mParams.onCellSizeForTable(self.mParams.mPThis, tableView, idx);
-	elseif (self.mParams.onCellSizeForTable ~= nil) then
-		return self.mParams.onCellSizeForTable(tableView, idx);
-	end
-end
-
-function M.onGlobalTableCellAtIndex(tableView, idx)
-	if(self.mParams.onTableCellAtIndex ~= nil and self.mParams.mPThis ~= nil) then
-		return self.mParams.onTableCellAtIndex(self.mParams.mPThis, tableView, idx);
-	elseif (self.mParams.onTableCellAtIndex ~= nil) then
-		return self.mParams.onTableCellAtIndex(tableView, idx);
-	end
-end
-
-function M.onGlobalNumberOfCellsInTableView(tableView)
-	if(self.mParams.onNumberOfCellsInTableView ~= nil and self.mParams.mPThis ~= nil) then
-		return self.mParams.onNumberOfCellsInTableView(self.mParams.mPThis, tableView);
-	elseif (self.mParams.onNumberOfCellsInTableView ~= nil) then
-		return self.mParams.onNumberOfCellsInTableView(tableView);
-	end
+	return cellItem;
 end
 
 return M;
