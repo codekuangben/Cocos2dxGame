@@ -64,4 +64,12 @@ function M.getAndLoadLuaRoot(path)
 	return uiNode.root;
 end
 
+function M.min(a, b)
+	return math.min(a, b);
+end
+
+function M.max(a, b)
+	return math.max(a, b);
+end
+
 return M;

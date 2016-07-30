@@ -6,8 +6,8 @@ function M:ctor()
 	self.mTableViewX = 0;
 	self.mTableViewY = 0;
 	
-	self.mTableViewWidth = 100;
-	self.mTableViewHeight = 100;
+	self.mTableViewWidth = 500;
+	self.mTableViewHeight = 500;
 	
 	self.mDirection = cc.SCROLLVIEW_DIRECTION_VERTICAL;
 	self.mVordering = cc.TABLEVIEW_FILL_TOPDOWN;
@@ -43,7 +43,7 @@ function M:onTableCellAtIndex(tableView, cellIdx)
 end
 
 function M:onNumberOfCellsInTableView(tableView)
-	return 5;
+	return 10;
 end
 
 return M;

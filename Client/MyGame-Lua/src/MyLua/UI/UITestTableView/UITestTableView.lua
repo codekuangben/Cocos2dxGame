@@ -1,5 +1,6 @@
 require "MyLua.UI.UITestTableView.TestTableViewNS"
 require "MyLua.UI.UITestTableView.TestTableViewData"
+require "MyLua.UI.UITestTableView.SubPanel.TestTableView"
 
 local M = GlobalNS.Class(GlobalNS.Form);
 M.clsName = "UITestTableView";
@@ -28,6 +29,7 @@ function M:onReady()
     M.super.onReady(self);
 
 	self:testVerticleTableView();
+	--self:test();
 end
 
 function M:onShow()
@@ -47,10 +49,18 @@ function M:onBtnClk()
 end
 
 function M:testVerticleTableView()
-	self.mTableView = GlobalNS.new(GlobalNS.AuxTableView);
+	self.mTableView = GlobalNS.new(GlobalNS.TestTableView);
 	self.mTableView:init();
 	GlobalNS.UtilApi.addChild(self:getRootLayer(), self.mTableView:getNativeTableView());
 	self.mTableView:reloadData();
+	local offset = self.mTableView:getContentOffset();
+	offset.y = offset.y + 130;
+	self.mTableView:setContentOffset(offset);
+end
+
+function M:test()
+	local cellItem = GlobalNS.UtilApi.getAndLoadLuaRoot("UI.UITestTableViewItem");
+	GlobalNS.UtilApi.addChild(self:getRootLayer(), cellItem);
 end
 
 return M;
