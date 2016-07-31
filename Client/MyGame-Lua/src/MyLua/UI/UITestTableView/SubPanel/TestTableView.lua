@@ -12,7 +12,7 @@ function M:ctor()
 	self.mDirection = cc.SCROLLVIEW_DIRECTION_VERTICAL;
 	self.mVordering = cc.TABLEVIEW_FILL_TOPDOWN;
 	
-	self.mcellItemPath = "UI.UITestTableViewItem";
+	self.mCellItemPath = "UI.UITestTableViewItem";
 end
 
 function M:dtor()

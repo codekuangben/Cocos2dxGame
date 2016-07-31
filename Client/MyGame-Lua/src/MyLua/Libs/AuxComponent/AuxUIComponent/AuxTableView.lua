@@ -13,7 +13,9 @@ function M:ctor()
 	self.mVordering = cc.TABLEVIEW_FILL_TOPDOWN;
 	
 	self.mCellItemTag = 1000;
-	self.mcellItemPath = "";
+	--使用 CocosStudio 制作 TableView Item 的时候， Layer 直属子节点一定不能是 Node，否则会导致添加到表中显示错乱
+	self.mCellItemPath = "";
+	self.mTableView = nil;
 end
 
 function M:dtor()
@@ -30,6 +32,9 @@ end
 
 function M:createTableView()
 	self.mTableView = cc.TableView:create(cc.size(self.mTableViewWidth, self.mTableViewHeight));
+	--类型是 cc.TableView, 不是 ccui.TableView
+	--self.mTableView = cc.TableView:create();
+	--self.mTableView:setContentSize(cc.size(self.mTableViewWidth, self.mTableViewHeight));
 	self.mTableView:setDirection(self.mDirection);
 	self.mTableView:setPosition(cc.p(self.mTableViewX, self.mTableViewY));
 	self.mTableView:setDelegate();
@@ -112,7 +117,7 @@ function M:onTableCellAtIndex(tableView, cellIdx)
 	
 	local cellItem = cell:getChildByTag(1000);
 	if(nil == cellItem) then
-		local uiModule = require(self.mcellItemPath); 	--require "path"
+		local uiModule = require(self.mCellItemPath); 	--require "path"
 		local uiNode = uiModule.create();
 		cellItem = uiNode.root;
 		cellItem:setTag(self.mCellItemTag);
@@ -187,6 +192,19 @@ function M:getContentOffset()
 	return nil;
 end
 
+--注意 TableView 继承 Layer，而 Layer 设置是否 Swallow 的接口是 setSwallowsTouches ，不是 setSwallowTouches， 而 Listener 的接口是 setSwallowTouches
+function M:setSwallowTouches(swallow)
+	if(self.mTableView ~= nil) then
+		self.mTableView:setSwallowsTouches(swallow);
+	end
+end
+
+function M:setTouchEnabled(enabled)
+	if(self.mTableView ~= nil) then
+		self.mTableView:setTouchEnabled(enabled);
+	end
+end
+
 function M:reloadData()
 	if(self.mTableView ~= nil) then
 		self.mTableView:reloadData();
@@ -214,7 +232,7 @@ end
 function M:getOrCreateCellItem(cell)
 	local cellItem = cell:getChildByTag(1000);
 	if(nil == cellItem) then
-		cellItem = GlobalNS.UtilApi.getAndLoadLuaRoot(self.mcellItemPath);
+		cellItem = GlobalNS.UtilApi.getAndLoadLuaRoot(self.mCellItemPath);
 		cellItem:setTag(self.mCellItemTag);
 		GlobalNS.UtilApi.addChild(cell, cellItem);
 	end

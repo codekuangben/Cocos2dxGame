@@ -77,6 +77,7 @@ require "MyLua.Libs.AuxComponent.AuxLoader.AuxPrefabLoader"
 require "MyLua.Libs.AuxComponent.AuxLoader.AuxUIPrefabLoader"
 
 require "MyLua.Libs.AuxComponent.AuxUIComponent.AuxTableView"
+require "MyLua.Libs.AuxComponent.AuxUIComponent.AuxPageView"
 
 -- FrameWork 脚本
 require "MyLua.Libs.FrameWork.ProcessSys"

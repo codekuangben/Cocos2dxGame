@@ -13,10 +13,28 @@ function M.getStageVisibleOrigin()
 	return director:getVisibleOrigin();
 end
 
+function M.getChildByName(parentNode, name)
+	local childNode = parentNode:getChildByName(name);
+	return childNode;
+end
+
+function M.findChildByPath(parentNode, path)
+	return parentNode:enumerateChildren(path);
+end
+
 function M.addChild(parent, child)
 	if(parent ~= nil and child ~= nil) then
 		parent:addChild(child);
 	end
+end
+
+function M.addEventHandle(uiWidget, handle)
+	uiWidget:setTouchEnabled(true);
+	uiWidget:onTouch(handle);
+end
+
+function M.captureScreen()
+	cc.utils:captureScreen();
 end
 
 function M.createTableViewCell()

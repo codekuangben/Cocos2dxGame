@@ -1,6 +1,7 @@
 require "MyLua.UI.UITestTableView.TestTableViewNS"
 require "MyLua.UI.UITestTableView.TestTableViewData"
 require "MyLua.UI.UITestTableView.SubPanel.TestTableView"
+require "MyLua.UI.UITestTableView.SubPanel.TestPageView"
 
 local M = GlobalNS.Class(GlobalNS.Form);
 M.clsName = "UITestTableView";
@@ -28,8 +29,10 @@ end
 function M:onReady()
     M.super.onReady(self);
 
-	self:testVerticleTableView();
+	--self:testVerticleTableView();
 	--self:test();
+	--self:testPageView();
+	self:testPageView_1();
 end
 
 function M:onShow()
@@ -42,6 +45,14 @@ end
 
 function M:onExit()
     M.super.onExit(self);
+end
+
+function M:findWidget()
+	
+end
+
+function M:addEventHandle()
+	
 end
 
 function M:onBtnClk()
@@ -61,6 +72,38 @@ end
 function M:test()
 	local cellItem = GlobalNS.UtilApi.getAndLoadLuaRoot("UI.UITestTableViewItem");
 	GlobalNS.UtilApi.addChild(self:getRootLayer(), cellItem);
+end
+
+function M:testPageView()
+	self.mPageView = GlobalNS.new(GlobalNS.TestPageView);
+	self.mPageView:init();
+	GlobalNS.UtilApi.addChild(self:getRootLayer(), self.mPageView:getNativePageView());
+	
+	local item = GlobalNS.UtilApi.getAndLoadLuaRoot("UI.PageItem");
+	self.mPageView:insertCustomItem(item, 0);
+	
+	item = GlobalNS.UtilApi.getAndLoadLuaRoot("UI.PageItem");
+	self.mPageView:insertCustomItem(item, 1);
+end
+
+function M:testPageView_1()
+	self.mPageView = GlobalNS.new(GlobalNS.TestPageView);
+	self.mPageView:init();
+	GlobalNS.UtilApi.addChild(self:getRootLayer(), self.mPageView:getNativePageView());
+	
+	local tableView = GlobalNS.new(GlobalNS.TestTableView);
+	tableView:init();
+	tableView:reloadData();
+	tableView:setSwallowTouches(false);
+	tableView:setTouchEnabled(false);
+	self.mPageView:insertCustomItem(tableView:getNativeTableView(), 0);
+	
+	tableView = GlobalNS.new(GlobalNS.TestTableView);
+	tableView:init()
+	tableView:reloadData();
+	tableView:setSwallowTouches(false);
+	tableView:setTouchEnabled(false);
+	self.mPageView:insertCustomItem(tableView:getNativeTableView(), 1);
 end
 
 return M;
