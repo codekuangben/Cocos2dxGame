@@ -15,6 +15,14 @@ require "MyLua.Libs.Core.Malloc"
 require "MyLua.Libs.DataStruct.MList"
 require "MyLua.Libs.DataStruct.MDictionary"
 
+--函数对象
+require "MyLua.Libs.Functor.CallFuncObjectBase"
+require "MyLua.Libs.Functor.CallFuncObjectFixParam"
+require "MyLua.Libs.Functor.CallFuncObjectVarParam"
+require "MyLua.Libs.Functor.PCallFuncObjectFixParam"
+require "MyLua.Libs.Functor.PCallFuncObjectVarParam"
+require "MyLua.Libs.Functor.CmpFuncObject"
+require "MyLua.Libs.Functor.ClosureFuncObject"
 
 -- 延迟处理器
 require "MyLua.Libs.DelayHandle.IDelayHandleItem"

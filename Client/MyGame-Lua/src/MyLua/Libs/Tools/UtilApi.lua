@@ -90,4 +90,11 @@ function M.max(a, b)
 	return math.max(a, b);
 end
 
+--创建闭包函数对象
+function M.createClosureFunctor(obj, method)
+    return function(...)
+        return method(obj, ...);
+    end
+end
+
 return M;

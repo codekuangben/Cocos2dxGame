@@ -54,7 +54,9 @@ end
 
 --添加事件处理器
 function M:addEventHandle()
-	self.mPageView:onEvent(M.onPageViewEvent);
+	--self.mPageView:onEvent(M.onPageViewEvent);
+	local cf = GlobalNS.new(GlobalNS.ClosureFuncObject);
+	
 end
 
 function M.onPageViewEvent(event)  
