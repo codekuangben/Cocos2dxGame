@@ -56,7 +56,7 @@ end
 function M:addEventHandle()
 	--self.mPageView:onEvent(M.onPageViewEvent);
 	local cf = GlobalNS.new(GlobalNS.ClosureFuncObject);
-	
+	cf:setPThisAndHandle
 end
 
 function M.onPageViewEvent(event)  
