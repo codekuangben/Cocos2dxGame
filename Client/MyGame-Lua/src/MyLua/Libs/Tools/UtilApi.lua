@@ -41,7 +41,8 @@ function M.createTableViewCell()
 	return cc.TableViewCell:new();
 end
 
-function M.addEventDispatcher(node)
+--添加事件监听器
+function M.addEventListener(node)
 	if(nil ~= node) then
 		local eventDispatcher = node:getEventDispatcher();
 		local listener = cc.EventListenerTouchOneByOne:create();
@@ -70,6 +71,31 @@ function M.addTouchEndHandle(listener, functor)
 	end
 end
 
+--没有从 EventDispatcher 中获取一个 Node 的 Listener 的接口，只能是谁使用谁添加，谁保存
+function M.addEventListenerAndHandle(node, beginFunctor, moveFunctor, endFunctor)
+	if(nil ~= node) then
+		local eventDispatcher = node:getEventDispatcher();
+		local listener = cc.EventListenerTouchOneByOne:create();
+		eventDispatcher:addEventListenerWithSceneGraphPriority(listener);
+		
+		if(nil ~= beginFunctor) then
+			listener:registerScriptHandle(beginFunctor, cc.Handler.EVENT_TOUCH_BEGAN);
+		end
+		
+		if(nil ~= moveFunctor) then
+			listener:registerScriptHandle(moveFunctor, cc.Handler.EVENT_TOUCH_MOVED);
+		end
+		
+		if(nil ~= endFunctor) then
+			listener:registerScriptHandle(endFunctor, cc.Handler.EVENT_TOUCH_ENDED);
+		end
+		
+		return listener;
+	end
+	
+	return nil;
+end
+
 function M.getAndLoadLua(path)
 	local uiModule = GlobalNS.ClassLoader.loadClass(path);
 	local uiNode = uiModule.create();
@@ -90,11 +116,47 @@ function M.max(a, b)
 	return math.max(a, b);
 end
 
---�����հ���������
+--创建闭包函数
 function M.createClosureFunctor(obj, method)
     return function(...)
         return method(obj, ...);
     end
+end
+
+function M.isTouchInNode(node, touch)
+	local touchLocation = touch:getLocation();
+	touchLocation = node:getParent():convertToNodeSpace(touchLocation);
+	local bBox = node:getBoundingBox(); 	--getBoundingBox 获取的位置是相对于 Parent Node 的位置信息
+	local ret = false;
+	
+	--获取的信息一定是左下是最小点，右上是最大点
+	if(bBox.x <= touchLocation.x and
+	   bBox.y <= touchLocation.y and
+	   touchLocation.x <= bBox.x + bBox.width and
+	   touchLocation.x <= bBox.x + bBox.height) then
+		ret = true;
+	end
+	
+	return ret;
+end
+
+function M.isTouchInRect(node, rect, touch)
+	local touchLocation = =nil;
+	if(nil ~= nil) then
+		touchLocation = node:convertToNodeSpace(touch:getLocation()); 	--转换到节点空间
+	else
+		touchLocation = touch:getLocation();
+	end
+	if(nil ~= rect) then
+		return cc.rectContainsPoint(rect, touchLocation);
+	else
+		local orig = node:getAnchorPointInPoints();
+		local size = node:getContentSize();
+		rect = cc.rect(orig, size);
+		return cc.rectContainsPoint(rect, touchLocation);
+	end
+	
+	return false;
 end
 
 return M;
