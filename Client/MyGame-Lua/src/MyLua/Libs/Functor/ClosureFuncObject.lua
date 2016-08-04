@@ -2,7 +2,7 @@ require "MyLua.Libs.Core.GlobalNS"
 require "MyLua.Libs.Core.Class"
 require "MyLua.Libs.Core.GObject"
 
---闭包函数对象，就是通过 __call metamethod 使用对象实现函数调用
+--闂寘鍑芥暟瀵硅薄锛屽氨鏄�氳繃 __call metamethod 浣跨敤瀵硅薄瀹炵幇鍑芥暟璋冪敤
 local M = GlobalNS.Class(GlobalNS.CallFuncObjectBase);
 M.clsName = "ClosureFuncObject";
 GlobalNS[M.clsName] = M;
@@ -14,10 +14,13 @@ function M:setPThisAndHandle(pThis, handle, param)
 end
 
 function M.__call(...)
-	if(nil ~= self.m_pThis and nil ~= self.m_handle) then
-        return self.m_handle(self.m_pThis, self.m_param);
-    elseif nil ~= self.m_handle then
-        return self.m_handle(self.m_param);
+	local params = {...};
+	local this = params[1];
+	local event = params[2];
+	if(nil ~= this.m_pThis and nil ~= this.m_handle) then
+        return this.m_handle(this.m_pThis, event);
+    elseif nil ~= this.m_handle then
+        return this.m_handle(event);
     else
         return 0
     end

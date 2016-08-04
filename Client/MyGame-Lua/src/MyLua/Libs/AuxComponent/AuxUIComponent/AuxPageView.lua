@@ -19,7 +19,7 @@ function M:dtor()
 	
 end
 
---³õÊ¼»¯
+--åˆå§‹åŒ–
 function M:init(pageView)
 	self.mPageView = pageView;
 	self:createPageView();
@@ -31,13 +31,13 @@ function M:getNativePageView()
 	return self.mPageView;
 end
 
---´´½¨´°¿Ú
+--åˆ›å»ºçª—å£
 function M:createPageView()
 	if(nil == self.mPageView) then
-		--ÀàĞÍÊÇ ccui.PageView, ²»ÊÇ cc.PageView
+		--ç±»å‹æ˜¯ ccui.PageView, ä¸æ˜¯ cc.PageView
 		self.mPageView = ccui.PageView:create();
 		self.mPageView:setDirection(self.mDirection);
-		--cc.size ²»ÊÇ cc.Size 
+		--cc.size ä¸æ˜¯ cc.Size 
 		self.mPageView:setContentSize(cc.size(self.mPageViewWidth, self.mPageViewHeight));
 		self.mPageView:setPosition(cc.size(self.mPageViewX, self.mPageViewY));
 		self.mPageView:removeAllItems();
@@ -47,22 +47,29 @@ function M:createPageView()
 	self.mPageView.pThis = self;
 end
 
---²éÕÒ´°¿Ú
+--æŸ¥æ‰¾çª—å£
 function M:findWidget()
 	
 end
 
---Ìí¼ÓÊÂ¼ş´¦ÀíÆ÷
+--æ·»åŠ äº‹ä»¶å¤„ç†å™¨
 function M:addEventHandle()
-	--self.mPageView:onEvent(M.onPageViewEvent);
+	--self.mPageView:onEvent(M.onGlobalPageViewEvent);
 	local cf = GlobalNS.new(GlobalNS.ClosureFuncObject);
-	cf:setPThisAndHandle
+	cf:setPThisAndHandle(self, M.onPageViewEvent);
+	self.mPageView:onEvent(cf);
 end
 
-function M.onPageViewEvent(event)  
+function M.onGlobalPageViewEvent(event)  
 	if("TURNING" == event.name) then
 		local this = event.target.pThis;
 		this:onPageViewTurn();
+	end  
+end
+
+function M:onPageViewEvent(event)  
+	if("TURNING" == event.name) then
+		self:onPageViewTurn();
 	end  
 end
 
@@ -76,7 +83,7 @@ function M:removeItem(index)
 	end
 end
 
---void ListView::insertCustomItem(Widget* item, ssize_t index) Õâ¸ö½Ó¿ÚµÚÒ»¸ö²ÎÊıÖÁÉÙÊÇÒ»¸ö Widget ²ÅĞĞ£¬Òò´Ë CocosStudio Ö±½ÓÖÆ×÷µÄ UI£¬µ¼³öµÄ Lua ÎÄ¼ş Root ²»ÊÇ Widget £¬Òò´Ë²»ÄÜÖ±½ÓÌí¼Óµ½ PageView ÉÏÃæ, Layout ÊÇ Widget ×ÓÀà£¬ TableView ²»ÊÇ Widget µÄ×ÓÀà
+--void ListView::insertCustomItem(Widget* item, ssize_t index) è¿™ä¸ªæ¥å£ç¬¬ä¸€ä¸ªå‚æ•°è‡³å°‘æ˜¯ä¸€ä¸ª Widget æ‰è¡Œï¼Œå› æ­¤ CocosStudio ç›´æ¥åˆ¶ä½œçš„ UIï¼Œå¯¼å‡ºçš„ Lua æ–‡ä»¶ Root ä¸æ˜¯ Widget ï¼Œå› æ­¤ä¸èƒ½ç›´æ¥æ·»åŠ åˆ° PageView ä¸Šé¢, Layout æ˜¯ Widget å­ç±»ï¼Œ TableView ä¸æ˜¯ Widget çš„å­ç±»
 function M:insertCustomItem(item, index)
 	if(nil ~= self.mPageView) then
 		item:setTag(self.mCellItemTag);

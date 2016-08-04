@@ -1,0 +1,20 @@
+<Solution>
+  <PropertyGroup Name="TestUI" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="Image">
+          <Folder Name="TestTableView">
+            <Image Name="Zero.png" />
+          </Folder>
+        </Folder>
+        <Folder Name="Res">
+          <Image Name="HelloWorld.png" />
+        </Folder>
+        <Project Name="UITest.csd" Type="Layer" />
+        <Project Name="UITestTableView.csd" Type="Layer" />
+        <Project Name="UITestTableViewItem.csd" Type="Layer" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>
