@@ -146,6 +146,12 @@
     <ClInclude Include="..\Classes\MyCC\Libs\FrameWork\Ctx.h">
       <Filter>Classes\MyCC\Libs\FrameWork</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\SceneLogic\MSceneRenderManager.h">
+      <Filter>Classes\Libs\Core\Engine\Core\SceneLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Interfaces\MEngineRenderEngine.h">
+      <Filter>Classes\Libs\Core\Engine\Interfaces</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
