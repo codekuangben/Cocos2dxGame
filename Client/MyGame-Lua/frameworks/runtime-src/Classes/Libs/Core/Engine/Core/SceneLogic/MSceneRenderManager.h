@@ -23,6 +23,32 @@ private:
 public:
 	MSceneRenderManager();
 	~MSceneRenderManager();
+
+	void fSceneRenderManager(MScene scene);
+	void MSceneRenderManager::setViewportSize(float width, float height);
+	void MSceneRenderManager::initialize();
+
+	void MSceneRenderManager::processNewCellCamera(MCamera cam);
+	void MSceneRenderManager::processNewCellCharacter(MCharacter character, bool needDepthsort = true);
+	void MSceneRenderManager::processNewCellEmptySprite(MEmptySprite spr, bool needDepthsort = true);
+	void MSceneRenderManager::processNewCellEffect(EffectEntity effect);
+	void MSceneRenderManager::processNewCellFObject(fSceneObject fobject);
+
+	void MSceneRenderManager::showListener(Event evt);
+	void MSceneRenderManager::addedItem(fRenderableElement ele);
+	void MSceneRenderManager::hideListener(Event evt);
+	void MSceneRenderManager::removedItem(fRenderableElement ele, bool destroyingScene = false);
+
+	void MSceneRenderManager::addToDepthSort(fRenderableElement item);
+	void MSceneRenderManager::removeFromDepthSort(fRenderableElement item);
+	void MSceneRenderManager::depthChangeListener(Event evt);
+	void MSceneRenderManager::depthSortSingle();
+	void MSceneRenderManager::depthSort();
+
+	void MSceneRenderManager::dispose();
+	void MSceneRenderManager::setCurCell(MCell value);
+	MCell MSceneRenderManager::getCurCell();
+	void MSceneRenderManager::setPreCell(MCell value);
 };
 
 #endif

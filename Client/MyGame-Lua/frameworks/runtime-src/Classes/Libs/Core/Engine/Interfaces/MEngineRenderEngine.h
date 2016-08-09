@@ -10,29 +10,29 @@ public:
 	~MEngineRenderEngine();
 
 	virtual void initialize() = 0;
-	virtual fElementContainer initRenderFor(element:fRenderableElement);
-	virtual void stopRenderFor(element:fRenderableElement);
-	virtual MovieClip getAssetFor(element:fRenderableElement);
+	virtual fElementContainer initRenderFor(MRenderableElement element);
+	virtual void stopRenderFor(MRenderableElement element);
+	virtual MovieClip getAssetFor(MRenderableElement element);
 
-	virtual void updateCharacterPosition(char:fCharacter);
-	virtual void updateEmptySpritePosition(spr:fEmptySprite);
-	virtual void updateEffectPosition(effect:EffectEntity);
-	virtual void updateFogPosition(fog:fFogPlane);
-	virtual void updateFObjectPosition(fobj:fObject);
+	virtual void updateCharacterPosition(MCharacter character);
+	virtual void updateEmptySpritePosition(MEmptySprite spr);
+	virtual void updateEffectPosition(EffectEntity effect);
+	virtual void updateFogPosition(MFogPlane fog);
+	virtual void updateFObjectPosition(MObject fobj);
 
-	virtual void showElement(element:fRenderableElement);
-	virtual void hideElement(element:fRenderableElement);
-	virtual void enableElement(element:fRenderableElement);
-	virtual void disableElement(element:fRenderableElement);
+	virtual void showElement(MRenderableElement element);
+	virtual void hideElement(MRenderableElement element);
+	virtual void enableElement(MRenderableElement element);
+	virtual void disableElement(MRenderableElement element);
 
-	virtual void setCameraPosition(camera:fCamera);
-	virtual void setViewportSize(width:Number, height : Number);
+	virtual void setCameraPosition(MCamera camera);
+	virtual void setViewportSize(float width, float height);
 
-	virtual void startOcclusion(element:fRenderableElement, character : fCharacter);
-	virtual void updateOcclusion(element:fRenderableElement, character : fCharacter);
-	virtual void stopOcclusion(element:fRenderableElement, character : fCharacter);
+	virtual void startOcclusion(MRenderableElement element, MCharacter character);
+	virtual void updateOcclusion(MRenderableElement element, MCharacter character);
+	virtual void stopOcclusion(MRenderableElement element, MCharacter character);
 
-	virtual Array translateStageCoordsToElements(x:Number, y : Number);
+	virtual Array translateStageCoordsToElements(float x, float y);
 	virtual void dispose();
 	virtual void setSceneLayer(value:Vector.<Sprite>);
 	virtual Rectangle getScrollRect();

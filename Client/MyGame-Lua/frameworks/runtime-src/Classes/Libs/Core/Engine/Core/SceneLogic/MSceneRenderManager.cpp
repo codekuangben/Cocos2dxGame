@@ -1,12 +1,23 @@
-// Constructor
-public function fSceneRenderManager(scene:fScene):void
+#include "MSceneRenderManager.h"
+
+MSceneRenderManager::MSceneRenderManager()
+{
+
+}
+
+MSceneRenderManager::~MSceneRenderManager()
+{
+
+}
+
+void MSceneRenderManager::fSceneRenderManager(MScene scene)
 {
 	this.scene = scene;
 	this.renderEngine = this.scene.renderEngine;
 }
-		
-// Receives the viewport size for this scene
-public function setViewportSize(width:Number, height:Number):void
+
+// 设置场景的视口大小
+void MSceneRenderManager::setViewportSize(float width, float height)
 {
 	this.range = Math.sqrt(width * width + height * height) * 0.5; //(2*fEngine.DEFORMATION)
 	if (this.range <= 0)
@@ -16,7 +27,7 @@ public function setViewportSize(width:Number, height:Number):void
 }
 		
 // This method is called when the scene is to be rendered and its render engine is ready
-public function initialize():void
+void MSceneRenderManager::initialize()
 {
 	this.depthSortArr = new Array;
 	this.elementsV = new Array;
@@ -29,7 +40,7 @@ public function initialize():void
 		
 	
 // KBEN: 优化裁剪
-public function processNewCellCamera(cam:fCamera):void
+void MSceneRenderManager::processNewCellCamera(MCamera cam)
 {
 	// 如果摄像机没有初始化，就不处理
 	if (!cam.m_bInit)
@@ -106,11 +117,9 @@ public function processNewCellCamera(cam:fCamera):void
 			
 	this.scene.m_depthDirty = true; // KBEN: 必须重新排序，至于是否真的需要排序，在排序的时候检查
 }
-		
 
-		
 // Process
-public function processNewCellCharacter(character:fCharacter, needDepthsort:Boolean = true):void
+void MSceneRenderManager::processNewCellCharacter(MCharacter character, bool needDepthsort)
 {
 	if (this.scene.engine.m_context.m_profiler)
 		this.scene.engine.m_context.m_profiler.enter("fScene.processNewCellCharacter");
@@ -183,7 +192,7 @@ public function processNewCellCharacter(character:fCharacter, needDepthsort:Bool
 }
 		
 // Process new cells for empty sprites
-public function processNewCellEmptySprite(spr:fEmptySprite, needDepthsort:Boolean = true):void
+void MSceneRenderManager::processNewCellEmptySprite(MEmptySprite spr, bool needDepthsort)
 {
 	// If visible, we place it
 	if (spr._visible)
@@ -224,7 +233,7 @@ public function processNewCellEmptySprite(spr:fEmptySprite, needDepthsort:Boolea
 }
 		
 // KBEN: 特效处理 
-public function processNewCellEffect(effect:EffectEntity):void
+void MSceneRenderManager::processNewCellEffect(EffectEntity effect)
 {
 	// 如果摄像机没有初始化，就不处理
 	if (!this.scene.currentCamera.m_bInit)
@@ -274,7 +283,7 @@ public function processNewCellEffect(effect:EffectEntity):void
 }
 		
 // KBEN: 掉落物处理 
-public function processNewCellFObject(fobject:fSceneObject):void
+void MSceneRenderManager::processNewCellFObject(fSceneObject fobject)
 {
 	// If it goes outside the scene, destroy it
 	if (fobject.cell == null)
@@ -319,13 +328,13 @@ public function processNewCellFObject(fobject:fSceneObject):void
 }
 		
 // Listens to elements made visible and adds assets to display list if they are within display range
-public function showListener(evt:Event):void
+void MSceneRenderManager::showListener(Event evt)
 {
 	this.addedItem(evt.target as fRenderableElement);
 }
 		
 // Adds an element to the render logic
-public function addedItem(ele:fRenderableElement):void
+void MSceneRenderManager::addedItem(fRenderableElement ele)
 {
 	try
 	{
@@ -435,19 +444,18 @@ public function addedItem(ele:fRenderableElement):void
 		{
 			strLog += "ele ";
 		}
-		DebugBox.sendToDataBase(strLog + e.getStackTrace());
-				
+		DebugBox.sendToDataBase(strLog + e.getStackTrace());	
 	}
 }
 		
 // Listens to elements made invisible and removes assets to display list if they were within display range
-public function hideListener(evt:Event):void
+void MSceneRenderManager::hideListener(Event evt)
 {
 	this.removedItem(evt.target as fRenderableElement);
 }
 		
 // Removes an element from the render logic
-public function removedItem(ele:fRenderableElement, destroyingScene:Boolean = false):void
+void MSceneRenderManager::removedItem(fRenderableElement ele, bool destroyingScene)
 {
 	var ch:BeingEntity;
 	var pos:int;
@@ -593,7 +601,7 @@ public function removedItem(ele:fRenderableElement, destroyingScene:Boolean = fa
 		
 // Adds an element to the depth sort array
 // KBEN: 不需要深度排序的不会调用这个函数   
-public function addToDepthSort(item:fRenderableElement):void
+void MSceneRenderManager::addToDepthSort(fRenderableElement item)
 {
 	if (this.depthSortArr.indexOf(item) < 0)
 	{
@@ -603,13 +611,13 @@ public function addToDepthSort(item:fRenderableElement):void
 }
 		
 // Removes an element from the depth sort array
-public function removeFromDepthSort(item:fRenderableElement):void
+void MSceneRenderManager::removeFromDepthSort(fRenderableElementitem)
 {
 	this.depthSortArr.splice(this.depthSortArr.indexOf(item), 1);
 	item.removeEventListener(fRenderableElement.DEPTHCHANGE, this.depthChangeListener);
 }
 		
-public function depthChangeListener(evt:Event):void
+void MSceneRenderManager::depthChangeListener(Event evt)
 {
 	// 如果深度排序应经需要重新排序了，就没有必然在单独排序自己了
 	if (this.scene.m_depthDirty || !this.scene.m_sortByBeingMove)
@@ -623,7 +631,7 @@ public function depthChangeListener(evt:Event):void
 }
 		
 // 某一些单个改变的内容
-public function depthSortSingle():void
+void MSceneRenderManager::depthSortSingle()
 {
 	var ar:Array = this.depthSortArr;
 	// KBEN: 深度排序
@@ -660,7 +668,7 @@ public function depthSortSingle():void
 }
 		
 // Depth sorts all elements currently displayed
-public function depthSort():void
+void MSceneRenderManager::depthSort()
 {
 	var ar:Array = this.depthSortArr;
 	// KBEN: 深度排序
@@ -691,7 +699,7 @@ public function depthSort():void
 }
 		
 // Frees resources
-public function dispose():void
+void MSceneRenderManager::dispose()
 {
 	if (this.depthSortArr)
 	{
@@ -725,17 +733,17 @@ public function dispose():void
 	this.m_preCell = null;
 }
 		
-public function set curCell(value:fCell):void
+void MSceneRenderManager::setCurCell(MCell value)
 {
 	this.cell = value;
 }
 		
-public function get curCell():fCell
+MCell MSceneRenderManager::getCurCell()
 {
 	return this.cell;
 }
 		
-public function set preCell(value:fCell):void
+void MSceneRenderManager::setPreCell(MCell value)
 {
 	this.m_preCell = value;
 }

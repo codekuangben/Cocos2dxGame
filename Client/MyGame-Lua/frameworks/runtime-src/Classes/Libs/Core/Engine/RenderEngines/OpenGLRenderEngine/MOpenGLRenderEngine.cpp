@@ -1,7 +1,9 @@
-﻿/**
+﻿#include "MOpenGLRenderEngine.h"
+
+/**
 	* Class constructor
 	*/
-public function fFlash9RenderEngine(scene:fScene, container:Sprite, sceneLayer:Vector.<Sprite> = null):void
+MOpenGLRenderEngine::MOpenGLRenderEngine(MScene scene, Sprite container, sceneLayer:Vector.<Sprite>)
 {
 	// Init items
 	this.scene = scene;
@@ -10,11 +12,16 @@ public function fFlash9RenderEngine(scene:fScene, container:Sprite, sceneLayer:V
 	m_SceneLayer = sceneLayer;
 	m_scrollRect = new Rectangle();
 }
+
+MOpenGLRenderEngine::~MOpenGLRenderEngine()
+{
+
+}
 		
 /**
 	* This method is called when the scene is to be displayed.
 	*/
-public function initialize():void
+void MOpenGLRenderEngine::initialize()
 {
 	try
 	{				
@@ -48,7 +55,7 @@ public function initialize():void
 /**
 	* This method initializes the render engine for an element in the scene.
 	*/
-public function initRenderFor(element:fRenderableElement):fElementContainer
+MElementContainer MOpenGLRenderEngine::initRenderFor(MRenderableElement element)
 {
 	var renderer:fFlash9ElementRenderer = this.createRendererFor(element);
 	return element.customData.flash9Renderer.container;
@@ -57,7 +64,7 @@ public function initRenderFor(element:fRenderableElement):fElementContainer
 /**
 	* This method removes an element from the render engine
 	*/
-public function stopRenderFor(element:fRenderableElement):void
+void MOpenGLRenderEngine::stopRenderFor(MRenderableElement element)
 {
 	// Delete renderer
 	element.customData.flash9Renderer = null;
@@ -73,7 +80,7 @@ public function stopRenderFor(element:fRenderableElement):void
 	* This method returns the asset from the library that was used to display the element.
 	* It gets written as the "flashClip" property of the element.
 	*/
-public function getAssetFor(element:fRenderableElement):MovieClip
+MovieClip MOpenGLRenderEngine::getAssetFor(MRenderableElement element)
 {
 	return element.customData.flash9Renderer.flashClip;
 }
@@ -81,7 +88,7 @@ public function getAssetFor(element:fRenderableElement):MovieClip
 /**
 	* This method updates the position of a character's sprite
 	*/
-public function updateCharacterPosition(char:fCharacter):void
+void MOpenGLRenderEngine::updateCharacterPosition(MCharacter character)
 {
 	char.customData.flash9Renderer.place();
 }
@@ -89,7 +96,7 @@ public function updateCharacterPosition(char:fCharacter):void
 /**
 	* This method updates the position of an epmty Sprite's sprite
 	*/
-public function updateEmptySpritePosition(spr:fEmptySprite):void
+void MOpenGLRenderEngine::updateEmptySpritePosition(MEmptySprite spr)
 {
 	spr.customData.flash9Renderer.place();
 }
@@ -103,19 +110,19 @@ public function updateEmptySpritePosition(spr:fEmptySprite):void
 //}
 		
 // KBEN: 更新特效位置 
-public function updateEffectPosition(effect:EffectEntity):void
+void MOpenGLRenderEngine::updateEffectPosition(EffectEntity effect)
 {
 	effect.customData.flash9Renderer.place();
 }
 		
 // KBEN: 更新掉落物位置 
-public function updateFObjectPosition(fobj:fObject):void
+void MOpenGLRenderEngine::updateFObjectPosition(MObject fobj)
 {
 	fobj.customData.flash9Renderer.place();
 }
 		
 // KBEN: 更新雾区域位置  
-public function updateFogPosition(fog:fFogPlane):void
+void MOpenGLRenderEngine::updateFogPosition(MFogPlane fog)
 {
 	fog.customData.flash9Renderer.place();
 }
@@ -123,7 +130,7 @@ public function updateFogPosition(fog:fFogPlane):void
 /**
 	* This method renders an element visible
 	**/
-public function showElement(element:fRenderableElement):void
+void MOpenGLRenderEngine::showElement(MRenderableElement element)
 {			
 	var r:fFlash9ElementRenderer = element.customData.flash9Renderer;
 	// KBEN: 资源加载尽量放在这资源加载里面，不要放在显示隐藏里面  
@@ -151,7 +158,7 @@ public function showElement(element:fRenderableElement):void
 /**
 	* This method renders an element invisible
 	**/
-public function hideElement(element:fRenderableElement):void
+void MOpenGLRenderEngine::hideElement(MRenderableElement element)
 {
 	var r:fFlash9ElementRenderer = element.customData.flash9Renderer;
 	r.hide();
@@ -167,7 +174,7 @@ public function hideElement(element:fRenderableElement):void
 /**
 	* This method enables mouse events for an element
 	**/
-public function enableElement(element:fRenderableElement):void
+void MOpenGLRenderEngine::enableElement(MRenderableElement element)
 {
 	element.customData.flash9Renderer.enableMouseEvents();
 }
@@ -175,7 +182,7 @@ public function enableElement(element:fRenderableElement):void
 /**
 	* This method disables mouse events for an element
 	**/
-public function disableElement(element:fRenderableElement):void
+void MOpenGLRenderEngine::disableElement(MRenderableElement element)
 {
 	element.customData.flash9Renderer.disableMouseEvents();
 }
@@ -183,7 +190,7 @@ public function disableElement(element:fRenderableElement):void
 /**
 	* Updates the render to show a given camera's position
 	*/
-public function setCameraPosition(camera:fCamera):void
+void MOpenGLRenderEngine::setCameraPosition(MCamera camera)
 {
 	// 滚动矩形方式
 	if (this.viewWidth > 0 && this.viewHeight > 0)
@@ -274,7 +281,7 @@ public function setCameraPosition(camera:fCamera):void
 	* Updates the viewport size. This call will be immediately followed by a setCameraPosition call
 	* @see org.ffilmation.engine.interfaces.fRenderEngine#setCameraPosition
 	*/
-public function setViewportSize(width:Number, height:Number):void
+void MOpenGLRenderEngine::setViewportSize(float width, float height)
 {
 	this.viewWidth = width;
 	this.viewHeight = height;
@@ -285,7 +292,7 @@ public function setViewportSize(width:Number, height:Number):void
 	* @param element Element where occlusion is applied
 	* @param character Character causing the occlusion
 	*/
-public function startOcclusion(element:fRenderableElement, character:fCharacter):void
+void MOpenGLRenderEngine::startOcclusion(MRenderableElement element, MCharacter character)
 {
 	var r:fFlash9ElementRenderer = element.customData.flash9Renderer;
 	if (r.screenVisible)
@@ -300,7 +307,7 @@ public function startOcclusion(element:fRenderableElement, character:fCharacter)
 	* @param element Element where occlusion is applied
 	* @param character Character causing the occlusion
 	*/
-public function updateOcclusion(element:fRenderableElement, character:fCharacter):void
+void MOpenGLRenderEngine::updateOcclusion(MRenderableElement element, MCharacter character)
 {
 	var r:fFlash9ElementRenderer = element.customData.flash9Renderer;
 	if (r.screenVisible)
@@ -315,7 +322,7 @@ public function updateOcclusion(element:fRenderableElement, character:fCharacter
 	* @param element Element where occlusion is applied
 	* @param character Character causing the occlusion
 	*/
-public function stopOcclusion(element:fRenderableElement, character:fCharacter):void
+void MOpenGLRenderEngine::stopOcclusion(MRenderableElement element, MCharacter character)
 {
 	var r:fFlash9ElementRenderer = element.customData.flash9Renderer;
 	if (r.screenVisible)
@@ -431,7 +438,7 @@ public function stopOcclusion(element:fRenderableElement, character:fCharacter):
 //		}
 
 // 直接获取对象
-public function translateStageCoordsToElements(x:Number, y:Number):Array
+Array MOpenGLRenderEngine::translateStageCoordsToElements(float x, float y)
 {
 	var ret:Array = [];
 	var p:Point = new Point();
@@ -620,7 +627,7 @@ public function translateStageCoordsToElements(x:Number, y:Number):Array
 */
 
 // 根据显示对象，查找其容器
-public function getRenderContainer(obj:DisplayObject, parent:DisplayObject, eleCon:fElementContainer):fElementContainer
+MElementContainer MOpenGLRenderEngine::getRenderContainer(DisplayObject obj, DisplayObject parent, MElementContainer eleCon)
 {
 	if(!(obj is Bitmap))	// 只有图片才能接受场景消息
 	{
@@ -641,7 +648,7 @@ public function getRenderContainer(obj:DisplayObject, parent:DisplayObject, eleC
 /**
 	* Frees all allocated resources. This is called when the scene is hidden or destroyed.
 	*/
-public function dispose():void
+void MOpenGLRenderEngine::dispose()
 {
 	// Stop listeners
 	this.scene.environmentLight.removeEventListener(fLight.COLORCHANGE, this.processGlobalColorChange);
@@ -670,7 +677,7 @@ public function dispose():void
 /**
 	* This event listener is executed when the global light changes its intensity
 	*/
-private function processGlobalIntensityChange(evt:Event):void
+void MOpenGLRenderEngine::processGlobalIntensityChange(Event evt)
 {
 	for (var i:String in this.renderers)
 	{
@@ -685,7 +692,7 @@ private function processGlobalIntensityChange(evt:Event):void
 /**
 	* This event listener is executed when the global light changes its color
 	*/
-private function processGlobalColorChange(evt:Event):void
+void MOpenGLRenderEngine::processGlobalColorChange(Event evt)
 {
 	for (var i:String in this.renderers)
 	{
@@ -700,7 +707,7 @@ private function processGlobalColorChange(evt:Event):void
 /**
 	* Creates the renderer associated to a renderableElement. The renderer is created if it doesn't exist.
 	*/
-private function createRendererFor(element:fRenderableElement):fFlash9ElementRenderer
+fFlash9ElementRenderer MOpenGLRenderEngine::createRendererFor(MRenderableElement element)
 {
 	//Create renderer if it doesn't exist
 	if (!this.renderers[element.uniqueId])
@@ -817,17 +824,17 @@ public static function recursiveDelete(d:DisplayObjectContainer):void
 		(d as Sprite).graphics.clear();
 }
 		
-public function getSceneLayer(id:uint):Sprite
+public MOpenGLRenderEngine::getSceneLayer(id:uint):Sprite
 {
 	return m_SceneLayer[id];
 }
 		
-public function set SceneLayer(value:Vector.<Sprite>):void 
+public MOpenGLRenderEngine::setSceneLayer(value:Vector.<Sprite>):void
 {
 	m_SceneLayer = value;
 }
 		
-public function get scrollRect():Rectangle
+Rectangle MOpenGLRenderEngine::getScrollRect()
 {
 	return m_scrollRect;
 }

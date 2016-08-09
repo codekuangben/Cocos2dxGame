@@ -15,92 +15,96 @@ void MEngineRenderEngine::initialize()
 
 }
 
-fElementContainer MEngineRenderEngine::initRenderFor(element:fRenderableElement)
+MElementContainer MEngineRenderEngine::initRenderFor(MRenderableElement element)
 {
 
 }
 
-void MEngineRenderEngine::stopRenderFor(element:fRenderableElement)
+void MEngineRenderEngine::stopRenderFor(MRenderableElement element)
 {
 
 }
 
-MovieClip MEngineRenderEngine::getAssetFor(element:fRenderableElement)
+MovieClip MEngineRenderEngine::getAssetFor(MRenderableElement element)
 {
 
 }
 
-void MEngineRenderEngine::updateCharacterPosition(char:fCharacter)
+void MEngineRenderEngine::updateCharacterPosition(MCharacter character)
 {
 
 }
 
-void MEngineRenderEngine::updateEmptySpritePosition(spr:fEmptySprite)
+void MEngineRenderEngine::updateEmptySpritePosition(MEmptySprite spr)
 {
 
 }
 
-void MEngineRenderEngine::updateEffectPosition(effect:EffectEntity)
+void MEngineRenderEngine::updateEffectPosition(EffectEntity effect)
 {
 
 }
 
-void MEngineRenderEngine::updateFogPosition(fog:fFogPlane)
+void MEngineRenderEngine::updateFogPosition(MFogPlane fog)
 {
 
 }
 
-void MEngineRenderEngine::updateFObjectPosition(fobj:fObject)
+void MEngineRenderEngine::updateFObjectPosition(MObject fobj)
 {
 
 }
 
-void MEngineRenderEngine::showElement(element:fRenderableElement)
+void MEngineRenderEngine::showElement(MRenderableElement element)
 {
 
 }
 
-void MEngineRenderEngine::hideElement(element:fRenderableElement)
+void MEngineRenderEngine::hideElement(MRenderableElement element)
 {
 
 }
 
-void MEngineRenderEngine::enableElement(element:fRenderableElement)
+void MEngineRenderEngine::enableElement(MRenderableElement element)
 {
 
 }
 
-void MEngineRenderEngine::disableElement(element:fRenderableElement)
+void MEngineRenderEngine::disableElement(MRenderableElement element)
 {
 
 }
 
-void MEngineRenderEngine::setCameraPosition(camera:fCamera)
+void MEngineRenderEngine::setCameraPosition(MCamera camera)
 {
 
 }
 
-void MEngineRenderEngine::setViewportSize(width:Number, height : Number)
+void MEngineRenderEngine::setViewportSize(float width, float height)
 {
 
 }
 
-void MEngineRenderEngine::startOcclusion(element:fRenderableElement, character : fCharacter)
+void MEngineRenderEngine::startOcclusion(MRenderableElement element, MCharacter character)
 {
 
 }
 
-void MEngineRenderEngine::updateOcclusion(element:fRenderableElement, character : fCharacter)
+void MEngineRenderEngine::updateOcclusion(MRenderableElement element, MCharacter character)
 {
 
 }
 
-void MEngineRenderEngine::stopOcclusion(element:fRenderableElement, character : fCharacter)
+void MEngineRenderEngine::stopOcclusion(MRenderableElement element, MCharacter character)
 {
 
 }
 
-Array MEngineRenderEngine::translateStageCoordsToElements(x:Number, y:Number);
+Array MEngineRenderEngine::translateStageCoordsToElements(float x, float y)
+{
+
+}
+
 void MEngineRenderEngine::dispose()
 {
 

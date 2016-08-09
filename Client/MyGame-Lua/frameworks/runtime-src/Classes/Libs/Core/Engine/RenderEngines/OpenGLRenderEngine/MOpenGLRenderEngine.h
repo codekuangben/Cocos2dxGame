@@ -7,7 +7,6 @@
 class MOpenGLRenderEngine : public MEngineRenderEngine
 {
 protected:
-
 	// Private properties
 
 	/** The scene rendered by this renderer */
@@ -29,6 +28,40 @@ protected:
 	private var m_SceneLayer : Vector.<Sprite>;
 	// ±£´æµÄ²Ã¼ô¾ØÐÎ
 	public var m_scrollRect : Rectangle;
+
+public:
+	MOpenGLRenderEngine::MOpenGLRenderEngine(MScene scene, Sprite container, sceneLayer:Vector.<Sprite> = null);
+	MOpenGLRenderEngine::~MOpenGLRenderEngine();
+	MElementContainer MOpenGLRenderEngine::initRenderFor(MRenderableElement element);
+	void MOpenGLRenderEngine::stopRenderFor(MRenderableElement element);
+	MovieClip MOpenGLRenderEngine::getAssetFor(MRenderableElement element);
+
+	void MOpenGLRenderEngine::updateCharacterPosition(MCharacter character);
+	void MOpenGLRenderEngine::updateEmptySpritePosition(MEmptySprite spr);
+	void MOpenGLRenderEngine::updateEffectPosition(EffectEntity effect);
+
+	void MOpenGLRenderEngine::updateFObjectPosition(MObject fobj);
+	void MOpenGLRenderEngine::updateFogPosition(MFogPlane fog);
+
+	void MOpenGLRenderEngine::showElement(MRenderableElement element);
+	void MOpenGLRenderEngine::hideElement(MRenderableElement element);
+	void MOpenGLRenderEngine::enableElement(MRenderableElement element);
+	void MOpenGLRenderEngine::disableElement(MRenderableElement element);	
+
+	void MOpenGLRenderEngine::setCameraPosition(MCamera camera);
+	void MOpenGLRenderEngine::setViewportSize(float width, float height);
+
+	void MOpenGLRenderEngine::startOcclusion(MRenderableElement element, MCharacter character);
+	void MOpenGLRenderEngine::updateOcclusion(MRenderableElement element, MCharacter character);
+	void MOpenGLRenderEngine::stopOcclusion(MRenderableElement element, MCharacter character);
+
+	Array MOpenGLRenderEngine::translateStageCoordsToElements(float x, float y);
+	MElementContainer MOpenGLRenderEngine::getRenderContainer(DisplayObject obj, DisplayObject parent, MElementContainer eleCon);
+	void MOpenGLRenderEngine::dispose();
+	void MOpenGLRenderEngine::processGlobalIntensityChange(Event evt);
+	void MOpenGLRenderEngine::processGlobalColorChange(Event evt);
+
+	fFlash9ElementRenderer MOpenGLRenderEngine::createRendererFor(MRenderableElement element);
 };
 
 #endif
