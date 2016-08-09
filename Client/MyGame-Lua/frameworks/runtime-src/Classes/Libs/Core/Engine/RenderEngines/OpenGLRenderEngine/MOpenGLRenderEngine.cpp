@@ -1,40 +1,4 @@
-﻿package org.ffilmation.engine.renderEngines.flash9RenderEngine
-{
-	// Imports
-	import com.bit101.components.Component;
-	import com.pblabs.engine.entity.EffectEntity;
-	import com.pblabs.engine.entity.EntityCValue;
-	import com.util.DebugBox;
-	import org.ffilmation.engine.helpers.fUtil;
-	
-	import flash.display.Bitmap;
-	import flash.display.DisplayObject;
-	import flash.display.DisplayObjectContainer;
-	import flash.display.MovieClip;
-	import flash.display.Shape;
-	import flash.display.Sprite;
-	import flash.events.Event;
-	import flash.geom.Point;
-	import flash.geom.Rectangle;
-	
-	import org.ffilmation.engine.core.fCamera;
-	import org.ffilmation.engine.core.fElementContainer;
-	import org.ffilmation.engine.core.fGlobalLight;
-	import org.ffilmation.engine.core.fLight;
-	//import org.ffilmation.engine.core.fPlane;
-	import org.ffilmation.engine.core.fRenderableElement;
-	import org.ffilmation.engine.core.fScene;
-	import org.ffilmation.engine.datatypes.fCoordinateOccupant;
-	import org.ffilmation.engine.elements.fCharacter;
-	import org.ffilmation.engine.elements.fEmptySprite;
-	import org.ffilmation.engine.elements.fFloor;
-	import org.ffilmation.engine.elements.fFogPlane;
-	import org.ffilmation.engine.elements.fObject;
-	import org.ffilmation.engine.helpers.fEngineCValue;
-	import org.ffilmation.engine.interfaces.fEngineRenderEngine;
-	import org.ffilmation.utils.objectPool;
-	
-	/**
+﻿	/**
 	 * This is ffilmation's default flash9 isometric renderer
 	 * @private
 	 */
@@ -1115,4 +1079,3 @@
 			return m_scrollRect;
 		}
 	}
-}
