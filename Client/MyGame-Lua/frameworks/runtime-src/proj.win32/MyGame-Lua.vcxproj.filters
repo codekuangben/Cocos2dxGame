@@ -28,6 +28,81 @@
     <Filter Include="Classes\MyCC\Libs\Tools">
       <UniqueIdentifier>{25d8cab8-c911-4272-aabc-b5d26b9b07aa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Libs">
+      <UniqueIdentifier>{042b488e-a1d4-4ec3-a881-95d67cccdc7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core">
+      <UniqueIdentifier>{ba1ba4c6-8d68-4297-a388-54493c35e49c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Engine">
+      <UniqueIdentifier>{a618a6e1-a27d-4dfe-a6be-95bf51baa70c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Engine\Core">
+      <UniqueIdentifier>{f176390c-4fcd-4d4c-af1e-079fd2f1349d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Engine\Core\SceneInitialization">
+      <UniqueIdentifier>{4341b7e5-1557-4ff6-b46f-b72e76034211}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Engine\Core\SceneLogic">
+      <UniqueIdentifier>{84ddec8b-1a13-4f42-b18c-1f4d1078dcbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Engine\DataTypes">
+      <UniqueIdentifier>{54b04f5c-dc05-4abe-8328-319d05ee0630}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Engine\Elements">
+      <UniqueIdentifier>{fc546008-159b-4172-a1fe-4bbe9af16491}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Engine\Events">
+      <UniqueIdentifier>{91c35107-b08e-460f-bea0-0cbfcc3f5499}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Engine\Helpers">
+      <UniqueIdentifier>{9687e083-444e-4e8d-999d-9535530aef46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Engine\Interfaces">
+      <UniqueIdentifier>{fcd9536c-ec09-43fa-b30c-9eab8e3dc78e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Engine\LogicSolvers">
+      <UniqueIdentifier>{1056b46f-2486-4b8b-8608-f9f20533dc25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Engine\Materials">
+      <UniqueIdentifier>{b47a5f2e-182b-4860-af0b-aec354853520}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Engine\Model">
+      <UniqueIdentifier>{a7962347-002a-43ee-a7f9-c5f56bf4d0cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Engine\RenderEngines">
+      <UniqueIdentifier>{14503cda-4dfc-46f2-880a-a16712b11c55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine">
+      <UniqueIdentifier>{3f86312b-efbb-4d1f-8741-db57de3364e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine\Helpers">
+      <UniqueIdentifier>{7c469b81-f329-44ff-9807-aead3c85d081}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Engine\LogicSolvers\CollisionSolver">
+      <UniqueIdentifier>{89b7cf38-0fa2-49de-9d02-aec426d50548}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Engine\LogicSolvers\LineOfSightSolver">
+      <UniqueIdentifier>{380316fc-adb5-4af7-907b-d5dd2d095ac0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Engine\LogicSolvers\PathFindSolver">
+      <UniqueIdentifier>{8c8029b6-766d-4ea5-8a4b-13496dc4f110}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Engine\LogicSolvers\VisibilitySolver">
+      <UniqueIdentifier>{dc288099-09e2-44e2-8ad6-40598bbf36c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Engine\LogicSolvers\CollisionSolver\CollisionModels">
+      <UniqueIdentifier>{a39b2b36-4ac2-4993-a36b-f08e88494c01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Utils">
+      <UniqueIdentifier>{5ac2aa44-c76e-48a1-9e60-c384bed2cb90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Utils\Polygons">
+      <UniqueIdentifier>{01a6fd1b-5893-4eb0-9791-251259405541}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Libs\Core\Utils\RTree">
+      <UniqueIdentifier>{486a1a24-6004-4c27-875b-43c437c65c91}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h">
@@ -115,5 +190,412 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\game.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Classes\Libs\Core\Utils\MViewPort.cpp">
+      <Filter>Classes\Libs\Core\Utils</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Utils\MPolygonUtils.cpp">
+      <Filter>Classes\Libs\Core\Utils</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Utils\MObjectPool.cpp">
+      <Filter>Classes\Libs\Core\Utils</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Utils\MMovieClipUtils.cpp">
+      <Filter>Classes\Libs\Core\Utils</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Utils\MMathUtils.cpp">
+      <Filter>Classes\Libs\Core\Utils</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Utils\MLineCircleIntersectionResult.cpp">
+      <Filter>Classes\Libs\Core\Utils</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Utils\MLine.cpp">
+      <Filter>Classes\Libs\Core\Utils</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Utils\MVector.cpp">
+      <Filter>Classes\Libs\Core\Utils</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Utils\MBumpMap.cpp">
+      <Filter>Classes\Libs\Core\Utils</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Utils\RTree\MRTreeNode.cpp">
+      <Filter>Classes\Libs\Core\Utils\RTree</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Utils\RTree\MRTree.cpp">
+      <Filter>Classes\Libs\Core\Utils\RTree</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Utils\RTree\MCube.cpp">
+      <Filter>Classes\Libs\Core\Utils\RTree</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Utils\Polygons\MPolygon.cpp">
+      <Filter>Classes\Libs\Core\Utils\Polygons</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine\MRenderMessageQueue.cpp">
+      <Filter>Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine\MRenderMessage.cpp">
+      <Filter>Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine\MFlash9SceneObjectSeqRenderer.cpp">
+      <Filter>Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine\MFlash9RenderEngine.cpp">
+      <Filter>Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine\MFlash9PlaneRenderer.cpp">
+      <Filter>Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine\MFlash9ObjectSeqRenderer.cpp">
+      <Filter>Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine\MFlash9ObjectRenderer.cpp">
+      <Filter>Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine\MFlash9ObjectOneRenderer.cpp">
+      <Filter>Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine\MFlash9ObjectEffSeqRenderer.cpp">
+      <Filter>Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine\MFlash9ObjectEffOneRenderer.cpp">
+      <Filter>Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine\MFlash9HorseSeqRender.cpp">
+      <Filter>Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine\MFlash9FogRenderer.cpp">
+      <Filter>Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine\MFlash9FloorRenderer.cpp">
+      <Filter>Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine\MFlash9EmptySpriteRenderer.cpp">
+      <Filter>Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine\MFlash9ElementRenderer.cpp">
+      <Filter>Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine\MAllRenderMessages.cpp">
+      <Filter>Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine\Helpers\MLightWeight.cpp">
+      <Filter>Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine\Helpers</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine\Helpers\MLightStatus.cpp">
+      <Filter>Classes\Libs\Core\Engine\RenderEngines\OpenGLRenderEngine\Helpers</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Model\MUIObjectMgr.cpp">
+      <Filter>Classes\Libs\Core\Engine\Model</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Model\MUIObject.cpp">
+      <Filter>Classes\Libs\Core\Engine\Model</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Materials\MWindowMaterial.cpp">
+      <Filter>Classes\Libs\Core\Engine\Materials</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Materials\MTileMaterial.cpp">
+      <Filter>Classes\Libs\Core\Engine\Materials</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Materials\MPerlinMaterial.cpp">
+      <Filter>Classes\Libs\Core\Engine\Materials</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Materials\MInvisibleMaterial.cpp">
+      <Filter>Classes\Libs\Core\Engine\Materials</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Materials\MFenceMaterial.cpp">
+      <Filter>Classes\Libs\Core\Engine\Materials</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Materials\MDoorMaterial.cpp">
+      <Filter>Classes\Libs\Core\Engine\Materials</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Materials\MDefaultMaterial.cpp">
+      <Filter>Classes\Libs\Core\Engine\Materials</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Materials\MClipMaterial.cpp">
+      <Filter>Classes\Libs\Core\Engine\Materials</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\LogicSolvers\PathFindSolver\MPathfindSolver.cpp">
+      <Filter>Classes\Libs\Core\Engine\LogicSolvers\VisibilitySolver</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\LogicSolvers\PathFindSolver\MDefaultPathfindCriteria.cpp">
+      <Filter>Classes\Libs\Core\Engine\LogicSolvers\VisibilitySolver</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\LogicSolvers\VisibilitySolver\MVisibilitySolver.cpp">
+      <Filter>Classes\Libs\Core\Engine\LogicSolvers\PathFindSolver</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\LogicSolvers\VisibilitySolver\MVisibilityInfo.cpp">
+      <Filter>Classes\Libs\Core\Engine\LogicSolvers\PathFindSolver</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\LogicSolvers\LineOfSightSolver\MLineOfSightSolver.cpp">
+      <Filter>Classes\Libs\Core\Engine\LogicSolvers\LineOfSightSolver</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\LogicSolvers\CollisionSolver\MCollisionCandidate.cpp">
+      <Filter>Classes\Libs\Core\Engine\LogicSolvers\CollisionSolver</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\LogicSolvers\CollisionSolver\MCollision.cpp">
+      <Filter>Classes\Libs\Core\Engine\LogicSolvers\CollisionSolver</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\LogicSolvers\CollisionSolver\CollisionModels\MEngineCollisionModel.cpp">
+      <Filter>Classes\Libs\Core\Engine\LogicSolvers\CollisionSolver\CollisionModels</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\LogicSolvers\CollisionSolver\CollisionModels\MCilinderCollisionModel.cpp">
+      <Filter>Classes\Libs\Core\Engine\LogicSolvers\CollisionSolver\CollisionModels</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\LogicSolvers\CollisionSolver\CollisionModels\MBoxCollisionModel.cpp">
+      <Filter>Classes\Libs\Core\Engine\LogicSolvers\CollisionSolver\CollisionModels</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Interfaces\MMovingElement.cpp">
+      <Filter>Classes\Libs\Core\Engine\Interfaces</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Interfaces\MEngineSceneRetriever.cpp">
+      <Filter>Classes\Libs\Core\Engine\Interfaces</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Interfaces\MEngineSceneController.cpp">
+      <Filter>Classes\Libs\Core\Engine\Interfaces</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Interfaces\MEngineRenderEngine.cpp">
+      <Filter>Classes\Libs\Core\Engine\Interfaces</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Interfaces\MEnginePathfindCriteria.cpp">
+      <Filter>Classes\Libs\Core\Engine\Interfaces</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Interfaces\MEngineMaterial.cpp">
+      <Filter>Classes\Libs\Core\Engine\Interfaces</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Interfaces\MEngineElementController.cpp">
+      <Filter>Classes\Libs\Core\Engine\Interfaces</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Helpers\MUtil.cpp">
+      <Filter>Classes\Libs\Core\Engine\Helpers</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Helpers\MSpriteDefinition.cpp">
+      <Filter>Classes\Libs\Core\Engine\Helpers</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Helpers\MSortCube.cpp">
+      <Filter>Classes\Libs\Core\Engine\Helpers</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Helpers\MSortArea.cpp">
+      <Filter>Classes\Libs\Core\Engine\Helpers</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Helpers\MResourceDefinition.cpp">
+      <Filter>Classes\Libs\Core\Engine\Helpers</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Helpers\MOffList.cpp">
+      <Filter>Classes\Libs\Core\Engine\Helpers</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Helpers\MObjectDefinition.cpp">
+      <Filter>Classes\Libs\Core\Engine\Helpers</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Helpers\MNoiseDefinition.cpp">
+      <Filter>Classes\Libs\Core\Engine\Helpers</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Helpers\MMaterialDefinition.cpp">
+      <Filter>Classes\Libs\Core\Engine\Helpers</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Helpers\MHoleClip.cpp">
+      <Filter>Classes\Libs\Core\Engine\Helpers</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Helpers\MEngineCValue.cpp">
+      <Filter>Classes\Libs\Core\Engine\Helpers</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Helpers\MCellEventInfo.cpp">
+      <Filter>Classes\Libs\Core\Engine\Helpers</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Helpers\MActDirOff.cpp">
+      <Filter>Classes\Libs\Core\Engine\Helpers</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Helpers\MActDirectDefinition.cpp">
+      <Filter>Classes\Libs\Core\Engine\Helpers</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Helpers\MActDefinition.cpp">
+      <Filter>Classes\Libs\Core\Engine\Helpers</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Events\MWalkoverEvent.cpp">
+      <Filter>Classes\Libs\Core\Engine\Events</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Events\MProcessEvent.cpp">
+      <Filter>Classes\Libs\Core\Engine\Events</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Events\MNewMaterialEvent.cpp">
+      <Filter>Classes\Libs\Core\Engine\Events</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Events\MNewCellEvent.cpp">
+      <Filter>Classes\Libs\Core\Engine\Events</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Events\MMoveEvent.cpp">
+      <Filter>Classes\Libs\Core\Engine\Events</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Events\MEventOut.cpp">
+      <Filter>Classes\Libs\Core\Engine\Events</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Events\MEventIn.cpp">
+      <Filter>Classes\Libs\Core\Engine\Events</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Events\MCollideEvent.cpp">
+      <Filter>Classes\Libs\Core\Engine\Events</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Elements\MSceneObject.cpp">
+      <Filter>Classes\Libs\Core\Engine\Elements</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Elements\MOmniLight.cpp">
+      <Filter>Classes\Libs\Core\Engine\Elements</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Elements\MObject.cpp">
+      <Filter>Classes\Libs\Core\Engine\Elements</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Elements\MFogPlane.cpp">
+      <Filter>Classes\Libs\Core\Engine\Elements</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Elements\MFloor.cpp">
+      <Filter>Classes\Libs\Core\Engine\Elements</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Elements\MEmptySprite.cpp">
+      <Filter>Classes\Libs\Core\Engine\Elements</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Elements\MCharacter.cpp">
+      <Filter>Classes\Libs\Core\Engine\Elements</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\DataTypes\MSrvMapTile.cpp">
+      <Filter>Classes\Libs\Core\Engine\DataTypes</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\DataTypes\MStopPoint.cpp">
+      <Filter>Classes\Libs\Core\Engine\DataTypes</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\DataTypes\MMapFileHeader.cpp">
+      <Filter>Classes\Libs\Core\Engine\DataTypes</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\DataTypes\MPosOfLine.cpp">
+      <Filter>Classes\Libs\Core\Engine\DataTypes</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\DataTypes\MIntRectangle.cpp">
+      <Filter>Classes\Libs\Core\Engine\DataTypes</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\DataTypes\MIntPoint.cpp">
+      <Filter>Classes\Libs\Core\Engine\DataTypes</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\DataTypes\MIntDimension.cpp">
+      <Filter>Classes\Libs\Core\Engine\DataTypes</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\DataTypes\MPoint3d.cpp">
+      <Filter>Classes\Libs\Core\Engine\DataTypes</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\DataTypes\MCoordinateOccupant.cpp">
+      <Filter>Classes\Libs\Core\Engine\DataTypes</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\DataTypes\MCilinder.cpp">
+      <Filter>Classes\Libs\Core\Engine\DataTypes</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\DataTypes\MCell.cpp">
+      <Filter>Classes\Libs\Core\Engine\DataTypes</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\DataTypes\MBox.cpp">
+      <Filter>Classes\Libs\Core\Engine\DataTypes</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\MStopPointImport.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\MShadowQuality.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\MSceneRenderableElement.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\MSceneConfig.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\MSceneChildLayer.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\MScene.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\MRenderableElement.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\MPlaneBounds.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\MPlane.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\MMaterialTypes.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\MMaterial.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\MLight.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\MHole.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\MGlobalLight.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\MEngine.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\MElementContainer.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\MElement.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\MCamera.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\MAiContainer.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\SceneLogic\MSceneRenderManager.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core\SceneLogic</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\SceneLogic\MLightSceneLogic.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core\SceneLogic</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\SceneLogic\MFObjectSceneLogic.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core\SceneLogic</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\SceneLogic\MEmptySpriteSceneLogic.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core\SceneLogic</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\SceneLogic\MEffectSceneLogic.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core\SceneLogic</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\SceneLogic\MCharacterSceneLogic.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core\SceneLogic</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\SceneInitialization\MSceneXMLParser.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core\SceneInitialization</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\SceneInitialization\MSceneRTreeBuilder.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core\SceneInitialization</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\SceneInitialization\MSceneResourceManager.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core\SceneInitialization</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\SceneInitialization\MSceneOcclusionParser.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core\SceneInitialization</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\SceneInitialization\MSceneLoader.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core\SceneInitialization</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\SceneInitialization\MSceneInitializer.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core\SceneInitialization</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\SceneInitialization\MSceneGridSorter.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core\SceneInitialization</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\SceneInitialization\MSceneFromXML.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core\SceneInitialization</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\SceneInitialization\MSceneCollisionParser.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core\SceneInitialization</Filter>
+    </None>
+    <None Include="..\Classes\Libs\Core\Engine\Core\SceneInitialization\MPlaneTesselation.cpp">
+      <Filter>Classes\Libs\Core\Engine\Core\SceneInitialization</Filter>
+    </None>
   </ItemGroup>
 </Project>
