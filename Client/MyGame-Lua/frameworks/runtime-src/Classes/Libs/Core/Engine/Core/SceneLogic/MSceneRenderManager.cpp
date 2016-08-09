@@ -223,61 +223,6 @@ public function processNewCellEmptySprite(spr:fEmptySprite, needDepthsort:Boolea
 	}
 }
 		
-// Process New cell for Bullets
-/*
-	public function processNewCellBullet(bullet:fBullet):void
-	{
-	// If it goes outside the scene, destroy it
-	if (bullet.cell == null)
-	{
-	this.scene.removeBullet(bullet);
-	return;
-	}
-		
-	// If visible, we place it
-	if (bullet._visible)
-	{
-	var x:Number, y:Number, z:Number;
-	try
-	{
-	x = this.cell.x;
-	y = this.cell.y;
-	z = this.cell.z;
-	}
-	catch (e:Error)
-	{
-	x = 0;
-	y = 0;
-	z = 0;
-	}
-		
-	// Inside range ?
-	if (bullet.distance2d(x, y, z) < this.range)
-	{
-	// Create if it enters the screen
-	if (!bullet.isVisibleNow)
-	{
-	this.renderEngine.showElement(bullet);
-	this.addToDepthSort(bullet);
-	bullet.isVisibleNow = true;
-	}
-	}
-	else
-	{
-	// Destroy if it leaves the screen
-	if (bullet.isVisibleNow)
-	{
-	this.renderEngine.hideElement(bullet);
-	this.removeFromDepthSort(bullet);
-	bullet.isVisibleNow = false;
-	}
-	}
-	}
-		
-	bullet.setDepth(bullet.cell.zIndex);
-	}
-	*/
-		
 // KBEN: 特效处理 
 public function processNewCellEffect(effect:EffectEntity):void
 {
@@ -663,40 +608,6 @@ public function removeFromDepthSort(item:fRenderableElement):void
 	this.depthSortArr.splice(this.depthSortArr.indexOf(item), 1);
 	item.removeEventListener(fRenderableElement.DEPTHCHANGE, this.depthChangeListener);
 }
-		
-/*
-	// Listens to renderable elements changing their depth
-	public function depthChangeListener(evt:Event):void
-	{
-	// 如果深度排序应经需要重新排序了，就没有必然在单独排序自己了
-	if(this.scene.m_depthDirty || !this.scene.m_sortByBeingMove)
-	{
-	return;
-	}
-		
-	var el:fRenderableElement = evt.target as fRenderableElement;
-	var oldD:int = el.depthOrder;
-	// KBEN: 插入排序
-	//this.depthSortArr.sortOn(insortSort);
-	fUtil.insortSort(this.depthSortArr);
-	var newD:int = this.depthSortArr.indexOf(el);
-	if (newD != oldD)
-	{
-	el.depthOrder = newD;
-	//this.scene.container.setChildIndex(el.container, newD);
-	// KBEN: 地形不排序，阴影需要排序
-	// KBEN: 不需要深度排序的不会调用 addToDepthSort 这个函数，因此这里不用调用这个函数
-	if (this.scene.m_SceneLayer[EntityCValue.SLObject].contains(el.container) && newD < this.scene.m_SceneLayer[EntityCValue.SLObject].numChildren)
-	{
-	this.scene.m_SceneLayer[EntityCValue.SLObject].setChildIndex(el.container, newD);
-	}
-	else
-	{
-	Logger.info(null, null, "depthChangeListener error");
-	}
-	}
-	}
-	*/
 		
 public function depthChangeListener(evt:Event):void
 {
