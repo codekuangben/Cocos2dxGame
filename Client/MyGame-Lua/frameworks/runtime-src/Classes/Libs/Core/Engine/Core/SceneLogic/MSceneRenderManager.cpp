@@ -1,4 +1,5 @@
 #include "MSceneRenderManager.h"
+#include "MVector.h"
 
 MSceneRenderManager::MSceneRenderManager()
 {
@@ -50,7 +51,7 @@ void MSceneRenderManager::processNewCellCamera(MCamera cam)
 	// Init
 	this.m_preCell = this.cell;
 	this.cell = cam.cell;
-	var x:Number, y:Number, z:Number;
+	float x = 0, y = 0, z = 0;
 	var tempElements:Vector.<fFloor>;
 			
 	// Camera enters new cell

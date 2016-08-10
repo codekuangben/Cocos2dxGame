@@ -5,7 +5,7 @@
 class MSceneRenderManager
 {
 private:
-	fScene scene : ; // 当前场景
+	MScene scene; // 当前场景
 	public var range : Number; // 当前视口可视化元素大小
 	private var depthSortArr : Array; // Array of elements for depth sorting
 
