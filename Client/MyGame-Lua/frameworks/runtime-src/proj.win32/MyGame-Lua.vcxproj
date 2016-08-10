@@ -197,6 +197,8 @@ xcopy "$(ProjectDir)..\..\..\src" "$(LocalDebuggerWorkingDirectory)\src" /D /E /
     <ClInclude Include="..\Classes\ide-support\RuntimeLuaImpl.h" />
     <ClInclude Include="..\Classes\Libs\Core\Engine\Core\SceneLogic\MSceneRenderManager.h" />
     <ClInclude Include="..\Classes\Libs\Core\Engine\Interfaces\MEngineRenderEngine.h" />
+    <ClInclude Include="..\Classes\Libs\DataStruct\MArray.h" />
+    <ClInclude Include="..\Classes\Libs\DataStruct\MVector.h" />
     <ClInclude Include="..\Classes\MyCC\Libs\FrameWork\Ctx.h" />
     <ClInclude Include="..\Classes\MyCC\Libs\FrameWork\EngineLoop.h" />
     <ClInclude Include="..\Classes\MyCC\Libs\FrameWork\ProcessSys.h" />
@@ -213,6 +215,8 @@ xcopy "$(ProjectDir)..\..\..\src" "$(LocalDebuggerWorkingDirectory)\src" /D /E /
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\ide-support\lua_debugger.c" />
     <ClCompile Include="..\Classes\ide-support\RuntimeLuaImpl.cpp" />
+    <ClCompile Include="..\Classes\Libs\DataStruct\MArray.cpp" />
+    <ClCompile Include="..\Classes\Libs\DataStruct\MVector.cpp" />
     <ClCompile Include="..\Classes\MyCC\Libs\FrameWork\Ctx.cpp" />
     <ClCompile Include="..\Classes\MyCC\Libs\FrameWork\EngineLoop.cpp" />
     <ClCompile Include="..\Classes\MyCC\Libs\FrameWork\ProcessSys.cpp" />
