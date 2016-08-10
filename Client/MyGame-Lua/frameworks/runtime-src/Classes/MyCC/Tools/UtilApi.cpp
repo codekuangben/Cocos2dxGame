@@ -1,4 +1,5 @@
 #include "UtilApi.h"
+#include <cmath>
 
 Size UtilApi::getStageVisibleSize()
 {
@@ -8,4 +9,9 @@ Size UtilApi::getStageVisibleSize()
 Vec2 UtilApi::getStageVisibleOrigin()
 {
 	return Director::getInstance()->getVisibleOrigin();
+}
+
+float UtilApi::sqrt(float value)
+{
+	return sqrt(value);
 }

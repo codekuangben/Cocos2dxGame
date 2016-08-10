@@ -10,6 +10,8 @@ class UtilApi
 public:
 	static Size getStageVisibleSize();
 	static Vec2 getStageVisibleOrigin();
+
+	static float sqrt(float value);
 };
 
 #endif
