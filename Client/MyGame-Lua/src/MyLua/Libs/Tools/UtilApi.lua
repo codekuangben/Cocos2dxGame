@@ -159,4 +159,13 @@ function M.isTouchInRect(node, rect, touch)
 	return false;
 end
 
+function M.setTextColor4b(label, color)
+	label:setTextColor(color);
+end
+
+function M.setTextColorRGBA(label, r, g, b, a)
+	local c4b = cc.c4b(r, g, b, a);
+	label:setTextColor(c4b);
+end
+
 return M;

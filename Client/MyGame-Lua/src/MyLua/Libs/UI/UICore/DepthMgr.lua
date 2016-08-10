@@ -15,4 +15,14 @@ function M:dtor()
 	
 end
 
+--同一个父节点中放到最高
+function M:bringToTop()
+	
+end
+
+--同一个父节点中，放到最低
+function M:bringToBottom()
+	
+end
+
 return M;
