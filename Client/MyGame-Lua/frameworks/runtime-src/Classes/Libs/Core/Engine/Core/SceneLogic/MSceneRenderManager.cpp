@@ -11,7 +11,7 @@ MSceneRenderManager::~MSceneRenderManager()
 
 }
 
-void MSceneRenderManager::fSceneRenderManager(MScene scene)
+void MSceneRenderManager::MSceneRenderManager(MScene* scene)
 {
 	this.scene = scene;
 	this.renderEngine = this.scene.renderEngine;
@@ -271,7 +271,7 @@ void MSceneRenderManager::processNewCellEffect(EffectEntity effect)
 			// Destroy if it leaves the screen
 			if (effect.isVisibleNow)
 			{
-				var pos:int = this.elementsV.indexOf(effect);
+				int pos = this.elementsV.indexOf(effect);
 				this.elementsV.splice(pos, 1);
 				this.renderEngine.hideElement(effect);
 				this.removeFromDepthSort(effect);
@@ -316,7 +316,7 @@ void MSceneRenderManager::processNewCellFObject(fSceneObject fobject)
 			// Destroy if it leaves the screen
 			if (fobject.isVisibleNow)
 			{
-				var pos:int = this.elementsV.indexOf(fobject);
+				int pos = this.elementsV.indexOf(fobject);
 				this.elementsV.splice(pos, 1);
 				this.renderEngine.hideElement(fobject);
 				this.removeFromDepthSort(fobject);
@@ -421,7 +421,7 @@ void MSceneRenderManager::addedItem(fRenderableElement ele)
 			}
 		}
 	}
-	catch (e:Error)
+	catch (Error e)
 	{
 		var strLog:String = "";
 		if (scene)
@@ -458,8 +458,8 @@ void MSceneRenderManager::hideListener(Event evt)
 // Removes an element from the render logic
 void MSceneRenderManager::removedItem(fRenderableElement ele, bool destroyingScene)
 {
-	var ch:BeingEntity;
-	var pos:int;
+	BeingEntity ch;
+	int pos;
 	if (ele.isVisibleNow)
 	{
 		ele.isVisibleNow = false;
@@ -612,7 +612,7 @@ void MSceneRenderManager::addToDepthSort(fRenderableElement item)
 }
 		
 // Removes an element from the depth sort array
-void MSceneRenderManager::removeFromDepthSort(fRenderableElementitem)
+void MSceneRenderManager::removeFromDepthSort(fRenderableElement item)
 {
 	this.depthSortArr.splice(this.depthSortArr.indexOf(item), 1);
 	item.removeEventListener(fRenderableElement.DEPTHCHANGE, this.depthChangeListener);
@@ -634,14 +634,14 @@ void MSceneRenderManager::depthChangeListener(Event evt)
 // 某一些单个改变的内容
 void MSceneRenderManager::depthSortSingle()
 {
-	var ar:Array = this.depthSortArr;
+	MVector<MObject*> ar = this.depthSortArr;
 	// KBEN: 深度排序
 	fUtil.insortSort(this.depthSortArr);
-	var i:int = ar.length;
+	int i = ar.length;
 	if (i == 0)
 		return;
 	// KBEN: 除了地形都排序
-	var p:Sprite = this.scene.m_SceneLayer[EntityCValue.SLObject];
+	Sprite p = this.scene.m_SceneLayer[EntityCValue.SLObject];
 	for each (var el:fRenderableElement in this.scene.m_singleDirtyArr)
 	{
 		var oldD:int = el.depthOrder;
@@ -660,7 +660,7 @@ void MSceneRenderManager::depthSortSingle()
 					p.setChildIndex(el.container, newD);
 				}
 			}
-			catch (e:Error)
+			catch (Error e)
 			{
 				Logger.info(null, null, "depthSortSingle error");
 			}
