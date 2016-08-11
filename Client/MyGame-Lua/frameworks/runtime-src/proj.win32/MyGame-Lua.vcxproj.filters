@@ -158,6 +158,12 @@
     <ClInclude Include="..\Classes\Libs\DataStruct\MVector.h">
       <Filter>Classes\MyCC\Libs\DataStruct</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Libs\DataStruct\MString.h">
+      <Filter>Classes\MyCC\Libs\DataStruct</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\MCamera.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -198,6 +204,9 @@
       <Filter>Classes\MyCC\Libs\DataStruct</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Libs\DataStruct\MVector.cpp">
+      <Filter>Classes\MyCC\Libs\DataStruct</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Libs\DataStruct\MString.cpp">
       <Filter>Classes\MyCC\Libs\DataStruct</Filter>
     </ClCompile>
   </ItemGroup>
