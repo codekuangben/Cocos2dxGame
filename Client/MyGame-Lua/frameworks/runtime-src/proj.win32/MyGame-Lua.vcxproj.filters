@@ -164,6 +164,39 @@
     <ClInclude Include="..\Classes\Libs\Core\Engine\Core\MCamera.h">
       <Filter>Classes\MyCC\Libs\Core\Engine\Core</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\MElement.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\MElementContainer.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\MRenderableElement.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\MScene.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\MSceneRenderableElement.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\MPlane.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Elements\MCharacter.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Elements\MEmptySprite.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Elements\MFloor.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Elements\MObject.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Elements\MSceneObject.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Elements</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
