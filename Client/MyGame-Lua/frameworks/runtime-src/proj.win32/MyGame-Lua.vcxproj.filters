@@ -275,6 +275,102 @@
     <ClInclude Include="..\Classes\Libs\Core\Engine\Events\MWalkoverEvent.h">
       <Filter>Classes\MyCC\Libs\Core\Engine\Events</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Helpers\MActDefinition.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Helpers\MActDirectDefinition.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Helpers\MActDirOff.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Helpers\MCellEventInfo.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Helpers\MEngineCValue.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Helpers\MHoleClip.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Helpers\MMaterialDefinition.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Helpers\MNoiseDefinition.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Helpers\MObjectDefinition.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Helpers\MOffList.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Helpers\MResourceDefinition.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Helpers\MSortArea.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Helpers\MSortCube.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Helpers\MSpriteDefinition.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Helpers\MUtil.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Elements\MOmniLight.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Elements\MFogPlane.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\SceneLogic\MCharacterSceneLogic.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core\SceneLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\SceneLogic\MEffectSceneLogic.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core\SceneLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\SceneLogic\MEmptySpriteSceneLogic.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core\SceneLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\SceneLogic\MFObjectSceneLogic.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core\SceneLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\SceneLogic\MLightSceneLogic.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core\SceneLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\SceneInitialization\MPlaneTesselation.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core\SceneInitialization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\SceneInitialization\MSceneCollisionParser.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core\SceneInitialization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\SceneInitialization\MSceneFromXML.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core\SceneInitialization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\SceneInitialization\MSceneGridSorter.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core\SceneInitialization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\SceneInitialization\MSceneInitializer.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core\SceneInitialization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\SceneInitialization\MSceneLoader.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core\SceneInitialization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\SceneInitialization\MSceneOcclusionParser.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core\SceneInitialization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\SceneInitialization\MSceneResourceManager.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core\SceneInitialization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\SceneInitialization\MSceneRTreeBuilder.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core\SceneInitialization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Core\SceneInitialization\MSceneXMLParser.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Core\SceneInitialization</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
