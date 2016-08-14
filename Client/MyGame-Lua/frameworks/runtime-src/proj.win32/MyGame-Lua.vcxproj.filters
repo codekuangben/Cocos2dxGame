@@ -215,6 +215,66 @@
     <ClInclude Include="..\Classes\Libs\Core\Engine\Interfaces\MEngineSceneController.h">
       <Filter>Classes\MyCC\Libs\Core\Engine\Interfaces</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\DataTypes\MBox.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\DataTypes\MCell.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\DataTypes\MCilinder.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\DataTypes\MCoordinateOccupant.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\DataTypes\MIntDimension.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\DataTypes\MIntPoint.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\DataTypes\MIntRectangle.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\DataTypes\MMapFileHeader.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\DataTypes\MPoint3d.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\DataTypes\MPosOfLine.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\DataTypes\MSrvMapTile.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\DataTypes\MStopPoint.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Events\MCollideEvent.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Events\MEventIn.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Events\MEventOut.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Events\MMoveEvent.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Events\MNewCellEvent.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Events\MNewMaterialEvent.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Events\MProcessEvent.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Events\MWalkoverEvent.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Events</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
