@@ -208,7 +208,13 @@ xcopy "$(ProjectDir)..\..\..\src" "$(LocalDebuggerWorkingDirectory)\src" /D /E /
     <ClInclude Include="..\Classes\Libs\Core\Engine\Elements\MFloor.h" />
     <ClInclude Include="..\Classes\Libs\Core\Engine\Elements\MObject.h" />
     <ClInclude Include="..\Classes\Libs\Core\Engine\Elements\MSceneObject.h" />
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Interfaces\MEngineElementController.h" />
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Interfaces\MEngineMaterial.h" />
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Interfaces\MEnginePathfindCriteria.h" />
     <ClInclude Include="..\Classes\Libs\Core\Engine\Interfaces\MEngineRenderEngine.h" />
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Interfaces\MEngineSceneController.h" />
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Interfaces\MEngineSceneRetriever.h" />
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Interfaces\MMovingElement.h" />
     <ClInclude Include="..\Classes\Libs\DataStruct\MArray.h" />
     <ClInclude Include="..\Classes\Libs\DataStruct\MString.h" />
     <ClInclude Include="..\Classes\Libs\DataStruct\MVector.h" />

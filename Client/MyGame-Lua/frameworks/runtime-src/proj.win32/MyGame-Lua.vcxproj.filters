@@ -197,6 +197,24 @@
     <ClInclude Include="..\Classes\Libs\Core\Engine\Elements\MSceneObject.h">
       <Filter>Classes\MyCC\Libs\Core\Engine\Elements</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Interfaces\MMovingElement.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Interfaces\MEngineSceneRetriever.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Interfaces\MEngineElementController.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Interfaces\MEngineMaterial.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Interfaces\MEnginePathfindCriteria.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Libs\Core\Engine\Interfaces\MEngineSceneController.h">
+      <Filter>Classes\MyCC\Libs\Core\Engine\Interfaces</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
