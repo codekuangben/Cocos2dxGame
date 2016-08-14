@@ -1,38 +1,27 @@
-package org.ffilmation.engine.events
+#include "MWalkoverEvent.h"
+
+MWalkoverEvent::MWalkoverEvent()
 {
-	import flash.events.Event;
-	import org.ffilmation.engine.core.fRenderableElement;
-	
-	/**
-	 * <p>The fWalkoverEvent event class stores information about a Walkover event.</p>
-	 *
-	 * <p>This event is dispatched when a character in the engine walks over a non-solid object in the scene. This is useful to collect items, for example.
-	 * </p>
-	 *
-	 */
-	public class fWalkoverEvent extends Event
-	{
-		// Public
+
+}
+
+MWalkoverEvent::~MWalkoverEvent()
+{
+
+}
 		
-		/**
-		 * The element of the scene we walk over
-		 */
-		public var victim:fRenderableElement;
+// Constructor
 		
-		// Constructor
-		
-		/**
-		 * Constructor for the fWalkoverEvent class.
-		 *
-		 * @param type The type of the event. Event listeners can access this information through the inherited type property.
-		 *
-		 * @param victim The element of the scene we collide against
-		 *
-		 */
-		function fWalkoverEvent(type:String, victim:fRenderableElement):void
-		{
-			super(type);
-			this.victim = victim;
-		}
-	}
+/**
+	* Constructor for the fWalkoverEvent class.
+	*
+	* @param type The type of the event. Event listeners can access this information through the inherited type property.
+	*
+	* @param victim The element of the scene we collide against
+	*
+	*/
+function fWalkoverEvent(type:String, victim:fRenderableElement):void
+{
+	super(type);
+	this.victim = victim;
 }
