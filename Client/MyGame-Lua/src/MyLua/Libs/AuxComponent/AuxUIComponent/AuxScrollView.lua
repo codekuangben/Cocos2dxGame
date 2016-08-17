@@ -39,13 +39,18 @@ function M:createTableView()
 	self.mScrollView.pThis = self;
 	
 	local cf = nil;
-	local cf = GlobalNS.new(GlobalNS.ClosureFuncObject);
+	cf = GlobalNS.new(GlobalNS.ClosureFuncObject);
 	cf:setPThisAndHandle(self, M.onTouchEvent);
 	self.mScrollView:onEvent(cf);
 end
 
 function M:onTouchEvent(event)
 	
+end
+
+--开启反弹
+function M:setBounceEnabled(enabled)
+	self.mScrollView:setBounceEnabled(enabled);
 end
 
 return M;
