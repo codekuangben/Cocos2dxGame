@@ -1,18 +1,5 @@
-package org.ffilmation.engine.core 
+public function fSceneRenderableElement(defObj:XML, scene:fScene):void
 {
-	/**
-	 * ...
-	 * @author zouzhiqiang
-	 */
-	public class fSceneRenderableElement extends fRenderableElement 
-	{
-		public var scene:fScene;
-		public function fSceneRenderableElement(defObj:XML, scene:fScene):void
-		{
-			this.scene = scene;
-			super(defObj, scene.engine.m_context);
-		}
-		
-	}
-
+	this.scene = scene;
+	super(defObj, scene.engine.m_context);
 }
