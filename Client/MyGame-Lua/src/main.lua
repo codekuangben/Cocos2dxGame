@@ -6,7 +6,11 @@ cc.FileUtils:getInstance():addSearchPath("res/UI") 	-- res/UI 查找目录
 --cc.FileUtils:getInstance():addSearchPath("res/Effect")
 --cc.FileUtils:getInstance():addSearchPath("res/Particle")
 
-require("mobdebug").start()
+--require("mobdebug").start()
+
+local initconnection = require("debugger")
+--initconnection("127.0.0.1", 10001, "luaidekey")
+initconnection("127.0.0.1", 10001, "luaidekey", nil, nil, "E:/Self/Self/Cocos2dxGame-git/Cocos2dxGame/Client/MyGame-Lua/src")
 
 require "MyLua.Libs.Core.Prequisites"
 

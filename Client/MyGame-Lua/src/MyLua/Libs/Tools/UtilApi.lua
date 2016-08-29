@@ -141,7 +141,7 @@ function M.isTouchInNode(node, touch)
 end
 
 function M.isTouchInRect(node, rect, touch)
-	local touchLocation = =nil;
+	local touchLocation = nil;
 	if(nil ~= nil) then
 		touchLocation = node:convertToNodeSpace(touch:getLocation()); 	--转换到节点空间
 	else
