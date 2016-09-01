@@ -214,9 +214,17 @@ end
 --重新加载数据，但是移动的偏移仍然保持不变
 function M:reloadDataNoResetOffset()
 	if(self.mTableView ~= nil) then
-		local offset = self.mTableView:getContentOffset();
+        local isEmpty = self:onNumberOfCellsInTableView(self.mTableView);
+		local offset = nil;
+		if(not isEmpty) then
+            offset = self.mTableView:getContentOffset();
+		end
+		
 		self.mTableView:reloadData();
-		self.mTableView:setContentOffset(offset);
+		
+		if(not isEmpty) then
+            self.mTableView:setContentOffset(offset);
+		end
 	end
 end
 
