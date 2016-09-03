@@ -249,4 +249,25 @@ function M:getOrCreateCellItem(cell)
 	return cellItem;
 end
 
+function M:aaaa()
+    local offsetBeforeReload = self.mTableView:getContentOffset();
+    local contentSizeBeforeReload = self.mTableView:getContentSize();
+    local viewSize = self.mTableView:getViewSize();
+    
+    self.mTableView:reloadData();
+    
+    local offsetAfterReload = self.mTableView:getContentOffset();
+    local contentSizeAfterReload = self.mTableView:getContentOffset();
+    
+    if(viewSize.height == contentSizeAfterReload.height) then
+        if(offsetBeforeReload.height == contentSizeAfterReload.height) then
+            self.mTableView:setContentOffset(offsetBeforeReload);
+        else
+            local distY = contentSizeAfterReload.height - contentSizeBeforeReload.height;
+            offsetBeforeReload.y = offsetBeforeReload.y - distY;
+            self.mTableView:setContentOffset(offsetBeforeReload);
+        end
+    end
+end
+
 return M;
