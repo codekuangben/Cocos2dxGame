@@ -39,7 +39,7 @@ function M:createTableView()
 	self.mScrollView.pThis = self;
 	
 	local cf = nil;
-	cf = GlobalNS.new(GlobalNS.ClosureFuncObject);
+	cf = GlobalNS.new(GlobalNS.ClosureFuncObjectFixParam);
 	cf:setPThisAndHandle(self, M.onTouchEvent);
 	self.mScrollView:onEvent(cf);
 end

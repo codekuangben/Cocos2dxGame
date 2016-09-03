@@ -22,7 +22,8 @@ require "MyLua.Libs.Functor.CallFuncObjectVarParam"
 require "MyLua.Libs.Functor.PCallFuncObjectFixParam"
 require "MyLua.Libs.Functor.PCallFuncObjectVarParam"
 require "MyLua.Libs.Functor.CmpFuncObject"
-require "MyLua.Libs.Functor.ClosureFuncObject"
+require "MyLua.Libs.Functor.ClosureFuncObjectFixParam"
+require "MyLua.Libs.Functor.ClosureFuncObjectFVarParam"
 
 -- 延迟处理器
 require "MyLua.Libs.DelayHandle.IDelayHandleItem"
