@@ -12,13 +12,14 @@ private:
 	MScene scene;
 
 public:
-	MAiContainer();
-	~MAiContainer();
-
 	/**
 	* This is the maximum depth pathfinding will reach before failing.
 	*/
-	public static const MAXSEARCHDEPTH : Number = 2000;	// 1000;
+	static const float MAXSEARCHDEPTH;	// 1000;
+
+public:
+	MAiContainer();
+	~MAiContainer();
 
 	/**
 	* Constructor for the fAiContainer class

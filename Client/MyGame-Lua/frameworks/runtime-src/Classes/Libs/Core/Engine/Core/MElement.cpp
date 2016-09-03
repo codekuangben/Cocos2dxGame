@@ -1,11 +1,27 @@
-/*
-	* Contructor for the fElement class.
-	*
-	* @param defObj: XML definition for this element. The XML attributes that will be parsed are ID,X,Y and Z
-	*
-	* @param scene: the scene where this element will be reated
-	*/
-function fElement(defObj:XML, con:Context):void
+#include "MElement.h"
+
+unsigned int MElement::count = 0;
+
+static const MOVE : String = "elementmove";
+public static const NEWCELL : String = "elementnewcell";
+
+MElement::MElement()
+	: destx(0), desty(0), destz(0), 
+	  offx(0), offy(0), offz(0), elasticity(0), 
+	  _controller(nullptr)
+{
+
+}
+
+MElement::~MElement()
+{
+
+}
+
+MElement::MElement(XML defObj, Context con)
+	:destx(0), desty(0), destz(0), 
+	 offx(0), offy(0), offz(0), elasticity(0), 
+	 _controller(nullptr)
 {
 	// Id
 	this.xmlObj = defObj;
@@ -36,12 +52,8 @@ function fElement(defObj:XML, con:Context):void
 			
 	this.customData = new Object();
 }
-		
-/**
-	* Assigns a controller to this element
-	* @param controller: any controller class that implements the fEngineElementController interface
-	*/
-public function set controller(controller:fEngineElementController):void
+
+void MElement::setController(MEngineElementController controller)
 {
 	if (this._controller != null)
 		this._controller.disable();
@@ -49,43 +61,21 @@ public function set controller(controller:fEngineElementController):void
 	if (this._controller)
 		this._controller.assignElement(this);
 }
-		
-/**
-	* Retrieves controller from this element
-	* @return controller: the class that is currently controlling the the fElement
-	*/
-public function get controller():fEngineElementController
+
+MEngineElementController MElement::getController()
 {
 	return this._controller;
 }
-		
-/**
-	* Moves the element to a given position
-	*
-	* @param x: New x coordinate
-	*
-	* @param y: New y coordinate
-	*
-	* @param z: New z coordinate
-	*
-	*/
-public function moveTo(x:Number, y:Number, z:Number):void
+
+void MElement::moveTo(float x, float y, float z)
 {			
 	// Set new coordinates			   
 	this.x = x;
 	this.y = y;
 	this.z = z;			
 }
-		
-/**
-	* Makes element follow target element
-	*
-	* @param target: The filmation element to be followed
-	*
-	* @param elasticity: How strong is the element attached to what is following. 0 Means a solid bind. The bigger the number, the looser the bind.
-	*
-	*/
-public function follow(target:fElement, elasticity:Number = 0):void
+
+void MElement::follow(MElement target, float elasticity)
 {
 	this.offx = target.x - this.x;
 	this.offy = target.y - this.y;
@@ -95,21 +85,13 @@ public function follow(target:fElement, elasticity:Number = 0):void
 	// KBEN: 如果这个地方跟随者没有移动，moveListener 这个函数就不会被调用
 	target.addEventListener(fElement.MOVE, this.moveListener, false, 0, true);
 }
-		
-/**
-	* Stops element from following another element
-	*
-	* @param target: The filmation element to be followed
-	*
-	*/
-public function stopFollowing(target:fElement):void
+
+void MElement::stopFollowing(MElement target)
 {
 	target.removeEventListener(fElement.MOVE, this.moveListener);
 }
-		
-// Listens for another element's movements
-/** @private */
-public function moveListener(evt:fMoveEvent):void
+
+void MElement::moveListener(MMoveEvent evt)
 {
 	if (this.elasticity == 1)
 		this.moveTo(evt.target.x - this.offx, evt.target.y - this.offy, evt.target.z - this.offz);
@@ -121,15 +103,12 @@ public function moveListener(evt:fMoveEvent):void
 		fEngine.stage.addEventListener('enterFrame', this.followListener, false, 0, true);
 	}
 }
-		
-/** Tries to catch up with the followed element
-	* @private
-	*/
-public function followListener(evt:Event):void
+
+void MElement::followListener(Event evt)
 {
-	var dx:Number = this.destx - this.x;
-	var dy:Number = this.desty - this.y;
-	var dz:Number = this.destz - this.z;
+	float dx = this.destx - this.x;
+	float dy = this.desty - this.y;
+	float dz = this.destz - this.z;
 	try
 	{
 		this.moveTo(this.x + dx / this.elasticity, this.y + dy / this.elasticity, this.z + dz / this.elasticity);
@@ -144,43 +123,33 @@ public function followListener(evt:Event):void
 		fEngine.stage.removeEventListener('enterFrame', this.followListener);
 	}
 }
-		
-/**
-	* Returns the distance of this element to the given coordinate
-	*
-	* @return distance
-	*/
-public function distanceTo(x:Number, y:Number, z:Number):Number
+
+float MElement::distanceTo(float x, float y, float z)
 {
 	//return mathUtils.distance3d(x, y, z, this.x, this.y, this.z);
 	return mathUtils.distance(x, y, this.x, this.y);
 }
-		
-// Clean resources
-		
-/** @private */
-public function disposeElement():void
+
+void MElement::disposeElement()
 {
-	this.xmlObj = null;
-	this.cell = null;
-	this._controller = null;
+	this.xmlObj = nullptr;
+	this.cell = nullptr;
+	this._controller = nullptr;
 	if (fEngine.stage)
 		fEngine.stage.removeEventListener('enterFrame', this.followListener);
 			
 	// KBEN: 上层逻辑销毁自己的时候，不用了，上层直接重载 dispose  
 	//dispatchEvent(new Event(fElement.DISPOSE));
-	this.m_context = null;
+	this.m_context = nullptr;
 }
-		
-/** @private */
-public function dispose():void
+
+void MElement::dispose()
 {
-	this.customData.flash9Renderer = null;
+	this.customData.flash9Renderer = nullptr;
 	this.disposeElement();
 }
-		
-// KBEN:
-public function onTick(deltaTime:Number):void
+
+void MElement::onTick(float deltaTime)
 {
 			
 }

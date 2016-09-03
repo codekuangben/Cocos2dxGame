@@ -1,6 +1,22 @@
-MCamera::MCamera(MScene* scene)
+#include "MCamera.h"
+
+unsigned int MCamera::count  = 0;
+
+MCamera::MCamera()
+	: m_bInit(false)
 {
-	var myId:String = "fCamera_" + (fCamera.count++);
+	
+}
+
+MCamera::~MCamera()
+{
+
+}
+
+MCamera::MCamera(MScene* scene)
+	: m_bInit(false)
+{
+	MString myId = "fCamera_" + (fCamera.count++);
 			
 	// Previous
 	this.m_scene = scene;
@@ -28,7 +44,7 @@ void MCamera::follow(MElement target, float elasticity)
 	target.addEventListener(fElement.MOVE, this.moveListener, false, 0, true);
 
 	// 检查位置是否有问题
-	var berr:Boolean = false;
+	bool berr = false;
 	berr = adjustPos(target.x, target.y, target.z);
 			
 	if(berr)
@@ -37,9 +53,9 @@ void MCamera::follow(MElement target, float elasticity)
 		this.desty = m_rect.y + m_rect.height/2;
 		this.destz = 0;
 				
-		var dx:Number = this.destx - this.x;
-		var dy:Number = this.desty - this.y;
-		var dz:Number = this.destz - this.z;
+		float dx = this.destx - this.x;
+		float dy = this.desty - this.y;
+		float dz = this.destz - this.z;
 
 		if (!(dx < 1 && dx > -1 && dy < 1 && dy > -1 && dz < 1 && dz > -1))	// 如果很小的移动就不移动了
 		{
@@ -53,7 +69,7 @@ void MCamera::moveListener(MMoveEvent evt)
 {
 	// 先检测是否能到达地图边缘
 	// bug 在这个地方判断有点问题，裁剪是根据摄像机的位置裁剪的，不是根据视口，视口仅仅是显示
-	var berr:Boolean = false;
+	bool berr = false;
 	berr = adjustPos(evt.target.x, evt.target.y, evt.target.z);
 			
 	// 记录逻辑位置
@@ -81,9 +97,9 @@ void MCamera::moveListener(MMoveEvent evt)
 		this.desty = m_rect.y + m_rect.height/2;
 		this.destz = 0;
 				
-		var dx:Number = this.destx - this.x;
-		var dy:Number = this.desty - this.y;
-		var dz:Number = this.destz - this.z;
+		float dx = this.destx - this.x;
+		float dy = this.desty - this.y;
+		float dz = this.destz - this.z;
 				
 		if (this.elasticity == 1)
 		{
@@ -98,9 +114,9 @@ void MCamera::moveListener(MMoveEvent evt)
 		
 void MCamera::followListener(Event evt)
 {
-	var dx:Number = this.destx - this.x;
-	var dy:Number = this.desty - this.y;
-	var dz:Number = this.destz - this.z;
+	float dx = this.destx - this.x;
+	float dy = this.desty - this.y;
+	float dz = this.destz - this.z;
 	try
 	{
 		this.moveTo(this.x + dx / this.elasticity, this.y + dy / this.elasticity, this.z + dz / this.elasticity);
@@ -139,9 +155,9 @@ void MCamera::moveTo(float x, float y, float z)
 	*/
 			
 	// Last position
-	var dx:Number = this.x;
-	var dy:Number = this.y;
-	var dz:Number = this.z;
+	float dx = this.x;
+	float dy = this.y;
+	float dz = this.z;
 			
 	// Set new coordinates			   
 	this.x = x;
@@ -149,13 +165,13 @@ void MCamera::moveTo(float x, float y, float z)
 	this.z = z;
 			
 	// Check if element moved into a different cell
-	var cell:fCell = this.m_scene.translateToCell(x, y, z);
-	if (cell == null)
+	MCell cell = this.m_scene.translateToCell(x, y, z);
+	if (cell == nullptr)
 	{
-		var str:String = fUtil.getStackInfo("");
+		MString str = fUtil.getStackInfo("");
 		DebugBox.sendToDataBase("fCamera::moveTo cell x="+x+" ,y="+y+str);
 	}
-	if (this.cell == null || cell == null || cell != this.cell)
+	if (this.cell == nullptr || cell == nullptr || cell != this.cell)
 	{
 		// 修真相机的裁剪视口
 		//setViewportSize(this.m_scene.engine.m_context.m_config.m_curWidth, this.m_scene.engine.m_context.m_config.m_curHeight);
@@ -170,12 +186,12 @@ void MCamera::moveTo(float x, float y, float z)
 // 如果需要调整位置返回 true
 bool MCamera::adjustPos(float targetx, float targety, float targetz)
 {
-	var berr:Boolean = false;
+	bool berr = false;
 	//if(this.m_scene.m_sceneType != EntityCValue.SCFight)
 	//{
-		var lcdestx:Number = targetx - this.offx;
-		var lcdesty:Number = targety - this.offy;
-		var lcdestz:Number = targetz - this.offz;
+		bool lcdestx = targetx - this.offx;
+		bool lcdesty = targety - this.offy;
+		bool lcdestz = targetz - this.offz;
 		// 假设不会进行坐标转换，不用调用这个函数了
 		// var p:Point = fScene.translateCoords(camera.x, camera.y, camera.z);
 		m_rect.width = m_context.m_config.m_curWidth;

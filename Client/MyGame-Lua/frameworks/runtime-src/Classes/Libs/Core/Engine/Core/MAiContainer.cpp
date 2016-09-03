@@ -1,5 +1,7 @@
 #include "MAiContainer.h"
 
+float MAiContainer::MAXSEARCHDEPTH = 2000;	// 1000;
+
 MAiContainer::MAiContainer()
 {
 
@@ -20,7 +22,7 @@ MArray MAiContainer::calculateLineOfSight(float fromx, float fromy, float fromz,
 	return fLineOfSightSolver.calculateLineOfSight(this.scene, fromx, fromy, fromz, tox, toy, toz);
 }
 
-MArray MAiContainer::findPath(MPoint3d origin, MPoint3d destiny, bool withDiagonals = true);
+MArray MAiContainer::findPath(MPoint3d origin, MPoint3d destiny, bool withDiagonals)
 {
 	return fPathfindSolver.findPathAStar(new fDefaultPathfindCriteria(this.scene, origin, destiny, withDiagonals));
 }

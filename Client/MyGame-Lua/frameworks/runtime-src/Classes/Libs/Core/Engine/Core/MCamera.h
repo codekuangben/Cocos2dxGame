@@ -6,9 +6,9 @@
 
 class MCamera : public MElement
 {
-protected:
+private:
 	// Constants
-	private static var count : Number = 0;
+	static unsigned int count;
 
 	/**
 	* Constructor for the fCamera class
@@ -17,14 +17,18 @@ protected:
 	*
 	* @private
 	*/
-	private var m_scene : fScene;
-	private var m_rect : Rectangle;			// 不用经常申请释放资源
-											//public var m_scrollRect:Rectangle;		// 用来裁剪矩形，与 m_rect 不一样，有一点误差
-											//public var m_logicPosX:Number = 0;		// 逻辑位置，就是完全和玩家的位置一样的
-											//public var m_logicPosY:Number = 0;		// 逻辑位置，就是完全和玩家的位置一样的
-	public var m_bInit : Boolean = false;
+	MScene m_scene;
+	Rectangle m_rect;			// 不用经常申请释放资源
+	//public var m_scrollRect:Rectangle;		// 用来裁剪矩形，与 m_rect 不一样，有一点误差
+	//public var m_logicPosX:Number = 0;		// 逻辑位置，就是完全和玩家的位置一样的
+	//public var m_logicPosY:Number = 0;		// 逻辑位置，就是完全和玩家的位置一样的
 
 public:
+	bool m_bInit;
+
+public:
+	MCamera();
+	~MCamera();
 	MCamera(MScene* scene);
 
 	virtual void follow(MElement target, float elasticity = 0);
