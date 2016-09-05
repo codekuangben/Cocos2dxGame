@@ -1,3 +1,27 @@
+#include "MScene.h"
+
+unsigned int MScene::count= 0;
+bool MScene::allCharacters = false;
+
+MScene::MScene()
+	: _controller(nullptr), 
+	sortCubeSize(MEngine.SORTCUBESIZE),
+	IAmBeingRendered(false),
+	m_scenePixelXOff(0),
+	m_scenePixelYOff(0),
+	m_scenePixelWidth(0),
+	m_scenePixelHeight(0),
+	m_depthDirty(false),
+	m_depthDirtySingle(false)
+{
+
+}
+
+MScene::~MScene()
+{
+
+}
+
 /**
 	* Constructor. Don't call directly, use fEngine.createScene() instead
 	* @private
