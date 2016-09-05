@@ -6,7 +6,8 @@
 
 class MSceneRenderableElement : public MRenderableElement
 {
-	public var scene : fScene;
+public:
+	MScene scene;
 };
 
 #endif

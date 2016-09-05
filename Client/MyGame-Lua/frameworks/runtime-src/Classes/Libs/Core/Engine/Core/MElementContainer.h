@@ -7,17 +7,18 @@
 */
 class MElementContainer : public Sprite
 {
+public:
 	/**
 	* The ID for this element.
 	* Using this, you will be able to access the element from an Event listener attached to the container.
 	*/
-	public var fElementId : String;
+	MString fElementId;
 
 	/**
 	* A pointer to the fElement this container represents.
 	* Using this, you will be able to access the element from an Event listener attached to the container.
 	*/
-	public var fElement : fRenderableElement;
+	MRenderableElement fElement;
 
 public:
 	MElementContainer();
