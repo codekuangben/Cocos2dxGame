@@ -11,6 +11,10 @@ function M:ctor()
     
 end
 
+function M:init()
+
+end
+
 function M:dtor()
     
 end

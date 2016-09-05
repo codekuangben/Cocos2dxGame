@@ -2,17 +2,17 @@ local M = GlobalNS.Class(GlobalNS.GObject);
 M.clsName = "AuxTableViewState";
 GlobalNS[M.clsName] = M;
 
-function M:ctor(tableView, direction)
-	self:init(tableView, direction);
+function M:ctor(tableView)
+	self:init(tableView);
 end
 
 function M:dtor()
 	self:dispose();
 end
 
-function M:init(tableView, direction)
+function M:init(tableView)
     self.mTableView = tableView;
-    self.mDirection = direction;
+    self.mDirection = self.mTableView:getDirection();
     
 	self.mOffsetBeforeReload = nil;
 	self.mContentSizeBeforeReload = nil;
@@ -23,12 +23,20 @@ function M:init(tableView, direction)
 end
 
 function M:dispose()
-
+    self.mTableView = nil;
+    self.mDirection = nil;
+    
+    self.mOffsetBeforeReload = nil;
+    self.mContentSizeBeforeReload = nil;
+    self.mViewSize = nil;
+    
+    self.mOffsetAfterReload = nil;
+    self.mContentSizeAfterReload = nil;
 end
 
-function M:setTableView(tableView, direction)
+function M:setTableView(tableView)
     self.mTableView = tableView;
-    self.mDirection = direction;
+    self.mDirection = self.mTableView:getDirection();
 end
 
 function M:beforeReload()
@@ -40,26 +48,30 @@ end
 function M:afterReload()
     self.mOffsetAfterReload = self.mTableView:getContentOffset();
     self.mContentSizeAfterReload = self.mTableView:getContentOffset();
+    local offset = nil;
+    local delta = 0;
     
     if(self.mDirection == cc.SCROLLVIEW_DIRECTION_VERTICAL) then
         if(self.mViewSize.height < self.mContentSizeAfterReload.height) then
-            if(self.mOffsetBeforeReload.height == self.mContentSizeAfterReload.height) then
-                self.mTableView:setContentOffset(self.mOffsetBeforeReload);
-            else
-                local distY = self.mContentSizeAfterReload.height - self.mContentSizeBeforeReload.height;
-                self.mOffsetBeforeReload.y = self.mOffsetBeforeReload.y - distY;
-                self.mTableView:setContentOffset(self.mOffsetBeforeReload);
+            offset = {x = 0, y = 0};
+            if(not self.mOffsetBeforeReload.height == self.mContentSizeAfterReload.height) then
+                delta = self.mContentSizeAfterReload.height - self.mContentSizeBeforeReload.height;
+                offset.y = self.mOffsetBeforeReload.y - delta;
             end
+            
+            offset.x = self.mOffsetBeforeReload.x;
+            self.mTableView:setContentOffset(offset);
         end
     elseif(self.mDirection == cc.SCROLLVIEW_DIRECTION_HORIZONTAL) then
         if(self.mViewSize.width < self.mContentSizeAfterReload.width) then
-            if(self.mOffsetBeforeReload.width == self.mContentSizeAfterReload.width) then
-                self.mTableView:setContentOffset(self.mOffsetBeforeReload);
-            else
-                local distX = self.mContentSizeAfterReload.width - self.mContentSizeBeforeReload.width;
-                self.mOffsetBeforeReload.x = self.mOffsetBeforeReload.x - distX;
-                self.mTableView:setContentOffset(self.mOffsetBeforeReload);
+            offset = {x = 0, y = 0};
+            if(not self.mOffsetBeforeReload.width == self.mContentSizeAfterReload.width) then
+                delta = self.mContentSizeAfterReload.width - self.mContentSizeBeforeReload.width;
+                offset.x = self.mOffsetBeforeReload.x - delta;
             end
+            
+            offset.y = self.mOffsetBeforeReload.y;
+            self.mTableView:setContentOffset(offset);
         end
     end
 end
