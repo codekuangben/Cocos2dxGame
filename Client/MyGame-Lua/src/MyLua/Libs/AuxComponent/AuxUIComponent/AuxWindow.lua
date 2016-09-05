@@ -8,15 +8,15 @@ M.clsName = "AuxWindow";
 GlobalNS[M.clsName] = M;
 
 function M:ctor()
-    
+    self:init();
+end
+
+function M:dtor()
+    self:dispose();
 end
 
 function M:init()
 
-end
-
-function M:dtor()
-    
 end
 
 function M:dispose()
